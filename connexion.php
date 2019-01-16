@@ -1,2 +1,2 @@
 login: adminInstaDog
-password: Insta@D0g
+password: Inst@D0g
