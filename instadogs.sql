@@ -15,8 +15,8 @@ CREATE TABLE dog (
     dog_name VARCHAR(100),
     dog_nickname VARCHAR(100),
     dog_gender VARCHAR(100),
-    PRIMARY KEY (dog_id),
-    FOREIGN KEY user_id REFERENCES user(user_id)
+    FOREIGN KEY (user_id) REFERENCES user(user_id),
+    PRIMARY KEY (dog_id)
 );
 
 CREATE TABLE article (
@@ -25,8 +25,8 @@ CREATE TABLE article (
     article_date date,
     article_image VARCHAR(100),
     article_text VARCHAR(255),
-    PRIMARY KEY (article_id),
-    FOREIGN KEY dog_id REFERENCES dog(dog_id)
+    FOREIGN KEY (dog_id) REFERENCES dog(dog_id),
+    PRIMARY KEY (article_id)
 );
 
 CREATE TABLE commentary (
@@ -36,8 +36,8 @@ CREATE TABLE commentary (
     commentary_text VARCHAR(255),
     commentary_date date,
     PRIMARY KEY (commentary_id),
-    FOREIGN KEY user_id REFERENCES user(user_id),
-    FOREIGN KEY article_id REFERENCES article(article_id)
+    FOREIGN KEY (article_id) REFERENCES article(article_id),
+    FOREIGN KEY (user_id) REFERENCES user(user_id)
 );
 
 CREATE TABLE breed (
@@ -49,6 +49,6 @@ CREATE TABLE breed (
 CREATE TABLE breed_relation (
     dog_id INT(100),
     breed_id INT(100),
-    FOREIGN KEY dog_id REFERENCES dog(dog_id),
-    FOREIGN KEY breed_id REFERENCES breed(breed_id)
-)
+    FOREIGN KEY (dog_id) REFERENCES dog(dog_id),
+    FOREIGN KEY (breed_id) REFERENCES breed(breed_id)
+);
