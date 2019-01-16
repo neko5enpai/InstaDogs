@@ -1,8 +1,8 @@
 CREATE USER 'adminInstaDog'@'localhost' IDENTIFIED BY 'Inst@D0g';
 
 CREATE DATABASE InstaDog;
-GRANT ALL PRIVILEGES ON InstaDog TO 'adminInstaDog'@'localhost';
-USE InstaDog; 
+GRANT ALL PRIVILEGES ON InstaDog.* TO 'adminInstaDog'@'localhost';
+USE InstaDog;
 
 CREATE TABLE User (
     id INT(100) AUTO_INCREMENT,
