@@ -1,54 +1,58 @@
+CREATE USER 'adminInstaDog'@'localhost' IDENTIFIED BY 'Inst@D0g';
+
 CREATE DATABASE InstaDog;
+GRANT ALL PRIVILEGES ON InstaDog TO 'adminInstaDog'@'localhost';
+USE InstaDog; 
 
-CREATE TABLE user (
-    user_id INT(100) AUTO_INCREMENT,
-    user_name VARCHAR(100),
-    user_password VARCHAR(255),
-    latest_user_login date,
-    PRIMARY KEY (user_id)
+CREATE TABLE User (
+    id INT(100) AUTO_INCREMENT,
+    userName VARCHAR(100),
+    userPassword VARCHAR(255),
+    latestLogin date,
+    PRIMARY KEY (id)
 );
 
-CREATE TABLE dog (
-    dog_id INT(100) AUTO_INCREMENT,
-    user_id INT(100),
-    dog_age date,
-    dog_name VARCHAR(100),
-    dog_nickname VARCHAR(100),
-    dog_gender VARCHAR(100),
-    FOREIGN KEY (user_id) REFERENCES user(user_id),
-    PRIMARY KEY (dog_id)
+CREATE TABLE Dog (
+    id INT(100) AUTO_INCREMENT,
+    userId INT(100),
+    age date,
+    dogName VARCHAR(100),
+    nickname VARCHAR(100),
+    gender VARCHAR(100),
+    CONSTRAINT fk_dog FOREIGN KEY (userId) REFERENCES User(id),
+    PRIMARY KEY (id)
 );
 
-CREATE TABLE article (
-    article_id INT(100) AUTO_INCREMENT,
-    dog_id INT(100),
-    article_date date,
-    article_image VARCHAR(100),
-    article_text VARCHAR(255),
-    FOREIGN KEY (dog_id) REFERENCES dog(dog_id),
-    PRIMARY KEY (article_id)
+CREATE TABLE Article (
+    id INT(100) AUTO_INCREMENT,
+    dogId INT(100),
+    articleDate date,
+    articleImage VARCHAR(100),
+    articleText VARCHAR(255),
+    CONSTRAINT fk_article FOREIGN KEY (dogId) REFERENCES Dog(id),
+    PRIMARY KEY (id)
 );
 
-CREATE TABLE commentary (
-    commentary_id INT(100) AUTO_INCREMENT,
-    user_id INT(100),
-    article_id INT(100),
-    commentary_text VARCHAR(255),
-    commentary_date date,
-    PRIMARY KEY (commentary_id),
-    FOREIGN KEY (article_id) REFERENCES article(article_id),
-    FOREIGN KEY (user_id) REFERENCES user(user_id)
+CREATE TABLE Commentary (
+    id INT(100) AUTO_INCREMENT,
+    userId INT(100),
+    articleId INT(100),
+    commentaryText VARCHAR(255),
+    commentaryDate date,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_commentarticle FOREIGN KEY (articleId) REFERENCES Article(id),
+    CONSTRAINT fk_commentuser FOREIGN KEY (userId) REFERENCES User(id)
 );
 
-CREATE TABLE breed (
-    breed_id INT(100) AUTO_INCREMENT,
-    breed_type VARCHAR(100),
-    PRIMARY KEY (breed_id)
+CREATE TABLE Breed (
+    breedId INT(100) AUTO_INCREMENT,
+    breedType VARCHAR(100),
+    PRIMARY KEY (breedId)
 );
 
-CREATE TABLE breed_relation (
-    dog_id INT(100),
-    breed_id INT(100),
-    FOREIGN KEY (dog_id) REFERENCES dog(dog_id),
-    FOREIGN KEY (breed_id) REFERENCES breed(breed_id)
+CREATE TABLE BreedRelation (
+    dogId INT(100),
+    breedId INT(100),
+    CONSTRAINT fk_breedrelationdog FOREIGN KEY (dogId) REFERENCES Dog(id),
+    CONSTRAINT fk_breedrelationbreed FOREIGN KEY (breedId) REFERENCES Breed(breedId)
 );
