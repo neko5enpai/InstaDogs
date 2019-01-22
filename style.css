@@ -13,14 +13,27 @@ img.logo {
 }
 
 
-.mult-slider img{
-    width: 150px;
-    height: 150px;
+.move-left a, .move-right a {
+	display: block;
+	text-decoration: none;
+	color: rgba(191, 233, 107, 0.912);
+	transition: all .5s;
+	border-top: 34px solid transparent;
+	border-bottom: 34px solid transparent;
+	width: 0;
+	height: 0;
 }
 
-.slider-for{
-    margin-top:20px;
+.move-left a:hover, .move-right a:hover {
+	color: rgba(55, 248, 16, 0.9);
 }
 
 
+.cont-carousel{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+
+}
 

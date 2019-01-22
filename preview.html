@@ -14,9 +14,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
 
-    <!--SLICK-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/albery.css">
+
     <link rel="stylesheet" href="style.css">
 
     <title>InstaDog - Preview</title>
@@ -53,55 +52,76 @@
     </nav>
 
     <!--CAROUSEL-->
-    <div class="container-flex" >
+    <div class="cont-carousel">
 
-        <section class="slider-for container" style="margin-left:150px;">
-            <div>
-                <img src="http://placehold.it/350x300?text=1">
+            <div class="pagination-container">
+                    <div class="pagination-wrapper">
+                        <div class="pagination-item" data-item="1">
+                            <img src="img/1.jpg" alt="">
+                        </div>
+                        <div class="pagination-item" data-item="2">
+                            <img src="img/2.jpg" alt="">
+                        </div>
+                        <div class="pagination-item" data-item="3">
+                            <img src="img/3.jpg" alt="">
+                        </div>
+                        <div class="pagination-item" data-item="4">
+                            <img src="img/4.jpg" alt="">
+                        </div>
+                        <div class="pagination-item" data-item="5">
+                            <img src="img/5.jpg" alt="">
+                        </div>
+                        <div class="pagination-item" data-item="5">
+                            <img src="img/6.jpg" alt="">
+                        </div>
+                        <div class="pagination-item" data-item="5">
+                            <img src="img/7.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+        <div class="albery-container">
+
+            <div class="albery-wrapper">
+
+                <div class="albery-item">
+                    <img src="img/1.jpg" alt="">
+                </div>
+                <div class="albery-item">
+                    <img src="img/2.jpg" alt="">
+                </div>
+                <div class="albery-item">
+                    <img src="img/3.jpg" alt="">
+                </div>
+                <div class="albery-item">
+                    <img src="img/4.jpg" alt="">
+                </div>
+                <div class="albery-item">
+                    <img src="img/5.jpg" alt="">
+                </div>
+                <div class="albery-item">
+                    <img src="img/6.jpg" alt="">
+                </div>
+                <div class="albery-item">
+                    <img src="img/7.jpg" alt="">
+                </div>
+
             </div>
-            <div>
-                <img src="http://placehold.it/350x300?text=2">
+
+            <div class="move-right">
+                <a href="#" id="rightArrow">▶</a>
             </div>
-            <div>
-                <img src="http://placehold.it/350x300?text=3">
+            <div class="move-left">
+                <a href="#" id="leftArrow">◀</a>
             </div>
-            <div>
-                <img src="http://placehold.it/350x300?text=4">
-            </div>
-            <div>
-                <img src="http://placehold.it/350x300?text=5">
-            </div>
-            <div>
-                <img src="http://placehold.it/350x300?text=6">
-            </div>
-        </section>
-        
-        
-        <section class="slider-nav">
-            <div class="mult-slider">
-                <img src="https://yt3.ggpht.com/a-/AAuE7mASq7VtBY1EXNdddpucoS_NS_ixBihtWr4xZw=s900-mo-c-c0xffffffff-rj-k-no">
-            </div>
-            <div class="mult-slider">
-                <img src="https://img-aws.ehowcdn.com/600x600p/photos.demandstudios.com/getty/article/170/105/89698097.jpg">
-            </div>
-            <div class="mult-slider">
-                <img src="https://yt3.ggpht.com/a-/AAuE7mASq7VtBY1EXNdddpucoS_NS_ixBihtWr4xZw=s900-mo-c-c0xffffffff-rj-k-no">
-            </div>
-            <div class="mult-slider">
-                <img src="https://i.redd.it/d859blhbh0201.jpg">
-            </div>
-            <div class="mult-slider">
-                <img src="https://img-aws.ehowcdn.com/600x600p/photos.demandstudios.com/getty/article/170/105/89698097.jpg">
-            </div>
-            <div class="mult-slider">
-                <img src="https://i.redd.it/d859blhbh0201.jpg">
-            </div>
-        </section>
+
+        </div>
+
+
+
     </div>
-        
-        
-        
-        <!--BOOTSTRAP-->
+
+
+    <!--BOOTSTRAP-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
@@ -111,10 +131,11 @@
 
 
     <!--SLICK-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="js/albery.js"></script>
     <script src="scripts.js"></script>
-    
+
     <!-- CREDITS -->
     <!-- <div>
         Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
