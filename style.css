@@ -1,6 +1,5 @@
 body {
     font-family: 'Nunito', sans-serif;
-    background-color: red;
 }
 
 .navbar-brand {
@@ -13,6 +12,15 @@ img.logo {
     transform: translateY(-7px);
 }
 
+
+.mult-slider img{
+    width: 150px;
+    height: 150px;
+}
+
+.slider-for{
+    margin-top:20px;
+}
 
 
 
