@@ -5,3 +5,4 @@
     paginationBorder: 7,
     paginationItemWidth: 100
   });
+
