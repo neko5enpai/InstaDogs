@@ -12,6 +12,13 @@ img.logo {
     transform: translateY(-7px);
 }
 
+.add-dog-border {
+    border: solid 1px #dee2e6;
+    border-radius: .25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 
 .move-left a, .move-right a {
 	display: block;
