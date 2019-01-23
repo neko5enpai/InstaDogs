@@ -16,18 +16,25 @@ img.logo {
 .move-left a, .move-right a {
 	display: block;
 	text-decoration: none;
-	color: rgba(191, 233, 107, 0.912);
+	color: #eaee0000;
 	transition: all .5s;
-	border-top: 34px solid transparent;
-	border-bottom: 34px solid transparent;
+	border-top: 25px solid transparent;
+	border-bottom: 25px solid transparent;
 	width: 0;
 	height: 0;
 }
 
 .move-left a:hover, .move-right a:hover {
-	color: rgba(55, 248, 16, 0.9);
+	color: #eaee0000;
 }
 
+
+.move-left a {
+	border-right: 25px solid rgba(221, 183, 231, 0.281);
+}
+.move-right a {
+	border-left: 25px solid rgba(221, 183, 231, 0.281);
+}
 
 .cont-carousel{
     display:flex;
