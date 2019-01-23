@@ -1,6 +1,6 @@
 body {
     font-family: 'Nunito', sans-serif;
-    background-color: red;
+    background-color: #dcc7ea;
 }
 
 .navbar-brand {
@@ -12,6 +12,8 @@ img.logo {
     margin-left: 5px;
     transform: translateY(-7px);
 }
+
+
 
 
 
