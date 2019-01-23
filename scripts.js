@@ -1,17 +1,8 @@
-$(document).on('ready', function () {
-    $('.slider-for').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        fade: true,
-        asNavFor: '.slider-nav'
-      });
-      $('.slider-nav').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        asNavFor: '.slider-for',
-        dots: true,
-        centerMode: true,
-        focusOnSelect: true
-      });         
-});
+
+  
+  $(".albery-container").albery({
+    speed: 200, // default: 200
+    imgWidth: 1024, // default: 600
+    paginationBorder: 7,
+    paginationItemWidth: 100
+  });

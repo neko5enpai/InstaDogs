@@ -1,6 +1,5 @@
 body {
     font-family: 'Nunito', sans-serif;
-    background-color: #dcc7ea;
 }
 
 .navbar-brand {
@@ -14,7 +13,34 @@ img.logo {
 }
 
 
+.move-left a, .move-right a {
+	display: block;
+	text-decoration: none;
+	color: #eaee0000;
+	transition: all .5s;
+	border-top: 25px solid transparent;
+	border-bottom: 25px solid transparent;
+	width: 0;
+	height: 0;
+}
+
+.move-left a:hover, .move-right a:hover {
+	color: #eaee0000;
+}
 
 
+.move-left a {
+	border-right: 25px solid rgba(221, 183, 231, 0.281);
+}
+.move-right a {
+	border-left: 25px solid rgba(221, 183, 231, 0.281);
+}
 
+.cont-carousel{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+
+}
 
