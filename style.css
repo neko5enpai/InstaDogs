@@ -35,7 +35,6 @@ img.logo {
 	color: #eaee0000;
 }
 
-
 .move-left a {
 	border-right: 25px solid rgba(221, 183, 231, 0.281);
 }
@@ -51,8 +50,22 @@ img.logo {
 
 }
 
-.banner-img{
-	width: 100%;
-	height: 50vh;
+.parallax {
+    background: url(img/9.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+.arrow-down img{
+    width: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+
 
