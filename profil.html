@@ -71,12 +71,12 @@
                 <button type="delete-dog" class="btn btn-light"><i class="fas fa-trash-alt"></i></button>
                 <button type="delete-dog" class="btn btn-light"><i class="fas fa-edit"></i></button>
             </div>
-            <div class="insert-dog">
+            <!-- <div class="insert-dog">
                 <a href="dog-profile.html">
                     <img class="img-thumbnail" src="img/add.png" alt="...">
                     <h3>Add new dog</h3>
                 </a>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -91,7 +91,7 @@
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">New dog</h4>
+        <!-- <h4 class="modal-title">Nouveau chien</h4> -->
         </div>
         <div class="modal-body"> <!-- Formulaire nouveau chien -->
             <!-- <p>Some text in the modal.</p> -->
@@ -101,34 +101,35 @@
                     <input class="form-control" type="text" placeholder="Insérez le nom de votre chien">
                 </div>
                     <div class="form-group">
-                      <label for="exampleFormControlSelect1">Example select</label>
-                      <select class="form-control" id="exampleFormControlSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
+                            <label>Date de naissance</label>
+                            <input type="date" class="form-control" id="exampleInputDOB1" placeholder="Date of Birth">
                     </div>
                     <div class="form-group">
-                      <label for="exampleFormControlSelect2">Example multiple select</label>
-                      <select multiple class="form-control" id="exampleFormControlSelect2">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
+                        <label class="radio-inline mr-2">
+                            <input type="radio" name="optradio" checked> Mâle
+                        </label>
+                        <label class="radio-inline mr-2">
+                            <input type="radio" name="optradio"> Femelle
+                        </label>
+                        <label class="radio-inline mr-2">
+                            <input type="radio" name="optradio"> Non spécifié
+                        </label>
                     </div>
                     <div class="form-group">
-                      <label for="exampleFormControlTextarea1">Example textarea</label>
+                        <label for="exampleFormControlInput1">Race du chien</label>
+                        <input class="form-control" type="text" placeholder="Race du chien">
+                        <label for="exampleFormControlInput1">Croisement</label>
+                        <input class="form-control" type="text" placeholder="Croisement">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlTextarea1">Description</label>
                       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                   </form>
 
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-default" data-dismiss="modal">Ajouter</button>
         </div>
     </div>
 
