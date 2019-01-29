@@ -1,3 +1,9 @@
+$(function() {
+  $( ".fas" ).click(function() {
+    $( ".dogs" ).remove();
+  });
+});
+
 
 $(".albery-container").albery({
   speed: 200, // default: 200
@@ -7,5 +13,4 @@ $(".albery-container").albery({
 });
 
 
-$("")
 

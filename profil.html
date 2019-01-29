@@ -13,8 +13,8 @@
     <!-- CSS Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>InstaDog - Login</title>
 </head>
@@ -45,7 +45,7 @@
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
             </form>
         </div>
     </nav>
@@ -60,19 +60,21 @@
                         alt="...">
                     <h3>Bobby</h3>
                 </a>
-                <span class="delete-dog"><i class="fas fa-trash-alt"></i></span>
+                <button type="delete-dog" class="btn btn-light"><i class="fas fa-trash-alt"></i></button>
+                <button type="delete-dog" class="btn btn-light"><i class="fas fa-edit"></i></button>
             </div>
             <div class="dogs">
                 <a href="dog-profile.html">
                     <img class="img-thumbnail" src="img/8CrIyqya.jpeg" alt="...">
                     <h3>Colonel le Corgi</h3>
                 </a>
-                <span class="delete-dog"><i class="fas fa-trash-alt"></i></span>
+                <button type="delete-dog" class="btn btn-light"><i class="fas fa-trash-alt"></i></button>
+                <button type="delete-dog" class="btn btn-light"><i class="fas fa-edit"></i></button>
             </div>
-            <div class="dogs">
+            <div class="insert-dog">
                 <a href="dog-profile.html">
                     <img class="img-thumbnail" src="img/add.png" alt="...">
-                <h3>Add new dog</h3>
+                    <h3>Add new dog</h3>
                 </a>
             </div>
         </div>
@@ -139,7 +141,7 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
-
+    <script src="scripts.js"></script>
     <!-- CREDITS -->
     <!-- <div>
             Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
