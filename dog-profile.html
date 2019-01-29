@@ -12,9 +12,9 @@
     <!-- CSS Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="Bootstrap/bootstrap-select-master/sass/bootstrap-select.scss">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>InstaDogs - Dog's Profile</title>
 </head>
 
@@ -85,16 +85,41 @@
             </p>
         </div>
 
-        <div class="comments-container">
-            <h2 class="comment-title">Commentaires</h2>
-            <div><span class="comment-autor mr-3">Fluffy</span><span class="comment-date">18.06.2019</span></div>
+        <h2 class="comment-title"><span class="comment-number ml-1">102</span> Commentaires</h2>
+        <a class="btn btn-primary mb-3" data-toggle="collapse" href="#comments" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Voir les comentaires
+        </a>
+        <div class="collapse comments-container mt-3" id="comments">
+            <div class="input-group mb-3">
+                    <span class="loged-person"><img class="comment-img" src="img/8.jpg" alt=""></span>
+                    <input type="text" class="form-control" placeholder="Ajouter un commentiare" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" id="button-addon2">Ajouter un commentaire</button>
+                    </div>
+            </div>
+            <div><img class="comment-img mr-2" src="img/8.jpg" alt=""><span class="comment-autor mr-3">Fluffy</span><span class="comment-date">18.06.2019</span></div>
                 <p>
                     AAA Donec id felis at justo accumsan mollis. Ut mattis nisl felis, ut iaculis augue dictum a. Maecenas quis
                     luctus ligula. Nunc accumsan arcu turpis, ac faucibus odio hendrerit eu. In ornare justo lectus, semper
                     vulputate risus mollis vitae. Aenean in pellentesque mi. Curabitur vestibulum feugiat ligula, eu
                     lacinia purus tempus in. Cras bibendum a mauris id pretium.
                 </p>
-            <a href="" class="commenter">Commenter</a>
+            <div><img class="comment-img mr-2" src="img/8.jpg" alt=""><span class="comment-autor mr-3">Fluffy</span><span class="comment-date">18.06.2019</span></div>
+            <p>
+                AAA Donec id felis at justo accumsan mollis. Ut mattis nisl felis, ut iaculis augue dictum a. Maecenas quis
+                luctus ligula. Nunc accumsan arcu turpis, ac faucibus odio hendrerit eu. In ornare justo lectus, semper
+                vulputate risus mollis vitae. Aenean in pellentesque mi. Curabitur vestibulum feugiat ligula, eu
+                lacinia purus tempus in. Cras bibendum a mauris id pretium.
+            </p>
+       
+        <div><img class="comment-img mr-2" src="img/8.jpg" alt=""><span class="comment-autor mr-3">Fluffy</span><span class="comment-date">18.06.2019</span></div>
+        <p>
+            AAA Donec id felis at justo accumsan mollis. Ut mattis nisl felis, ut iaculis augue dictum a. Maecenas quis
+            luctus ligula. Nunc accumsan arcu turpis, ac faucibus odio hendrerit eu. In ornare justo lectus, semper
+            vulputate risus mollis vitae. Aenean in pellentesque mi. Curabitur vestibulum feugiat ligula, eu
+            lacinia purus tempus in. Cras bibendum a mauris id pretium.
+        </p>
+    
         </div>
     </div>
 
