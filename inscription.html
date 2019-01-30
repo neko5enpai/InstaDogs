@@ -1,116 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-    <!-- META -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- META -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- CSS Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="Bootstrap/bootstrap-select-master/sass/bootstrap-select.scss">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+  <!-- CSS Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
     crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="Bootstrap/bootstrap-select-master/sass/bootstrap-select.scss">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
 
-    
-    <title>InstaDogs - Accueil</title>
+
+  <title>InstaDogs - Accueil</title>
 </head>
 
 <body>
-        <!-- Barre de Navigation Bootstrap -->
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm p-3 bg-white">
-            <a class="navbar-brand" href="preview.html">InstaDog<img class="logo" src="img/paw.png" alt="Logo InstaDog"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            
-        
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                                <a class="nav-link" href="login.html">Login</a>
-                            </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Inscription</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="preview.html">Preview</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="profil.html">Profil</a>
-                  </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-                </form>
-            </div>
-        </nav>
-        <div class="container mt-3">
-        <form>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputPassword4">Mot de passe</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Mot de passe">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputAddress">Adresse</label>
-                  <input type="text" class="form-control" id="inputAddress" placeholder="7 avenue du Moelleux">
-                </div>
-                <div class="form-group">
-                  <label for="inputAddress2">Adresse 2</label>
-                  <input type="text" class="form-control" id="inputAddress2" placeholder="Appartement, studio, étage">
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="inputCity">Ville</label>
-                    <input type="text" class="form-control" id="inputCity">
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label>Pays</label>
-                        <select class="form-control countrypicker" data-live-search="true" data-default="Switzerland" data-flag="true">
+  <!-- Barre de Navigation Bootstrap -->
+  <nav class="navbar navbar-expand-md navbar-light shadow-sm p-3 bg-white">
+    <a class="navbar-brand" href="preview.html">InstaDog<img class="logo" src="img/paw.png" alt="Logo InstaDog"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-                        </select>
-                  </div>
-                  <div class="form-group col-md-2">
-                    <label for="inputZip">Code postal</label>
-                    <input type="text" class="form-control" id="inputZip">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                      Rester connecté
-                    </label>
-                  </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Créer compte</button>
-              </form>
-            </div>
 
-    <!-- BOOTSTRAP -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    
-    <!-- COUNTRY PICKER -->
-    <script src="Bootstrap/bootstrap-select-master/js/bootstrap-select.js"></script>
-    <script src="Bootstrap/Bootstrap-Country-Picker-jQuery/js/countrypicker.js"></script>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">Login</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Inscription</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="preview.html">Preview</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="profil.html">Profil</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+  </nav>
+  <div class="container mt-3">
+    <form>
+      <div class="form-group">
+        <div class="form-group">
+          <label for="inputUsername2">Nom d'utilisateur</label>
+          <input type="email" class="form-control" id="inputUsername2" placeholder="Nom d'utilisateur">
+        </div>
+        <div class="form-group">
+          <label for="inputPassword1">Mot de passe</label>
+          <input type="password" class="form-control" id="inputPassword1" placeholder="Mot de passe">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputConfirmPassword1">Confirmer le mot de passe</label>
+        <input type="password" class="form-control" id="inputConfirmPassword1" placeholder="Mot de passe">
+      </div>
+
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck">
+          <label class="form-check-label" for="gridCheck">
+            Rester connecté
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Créer compte</button>
+    </form>
+  </div>
+
+  <!-- BOOTSTRAP -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+
+  <!-- COUNTRY PICKER -->
+  <script src="Bootstrap/bootstrap-select-master/js/bootstrap-select.js"></script>
+  <script src="Bootstrap/Bootstrap-Country-Picker-jQuery/js/countrypicker.js"></script>
 
 
 
-    <!-- CREDITS -->
-    <!-- <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+  <!-- CREDITS -->
+  <!-- <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
 </body>
+
 </html>
