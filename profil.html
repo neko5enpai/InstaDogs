@@ -31,7 +31,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="login.html">Login</a>
                 </li>
                 <li class="nav-item">
@@ -39,6 +39,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="preview.html">Preview</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="profil.html">Profil</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -59,7 +62,7 @@
                     <h3>Bobby</h3>
                 </a>
                 <button type="delete-dog" class="btn btn-light delete_dog"><i class="fas fa-trash-alt"></i></button>
-                <button type="delete-dog" class="btn btn-light"><i class="fas fa-edit"></i></button>
+                <button type="delete-dog" class="btn btn-light" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
             </div>
             <div class="dogs">
                 <a href="dog-profile.html">
@@ -67,7 +70,7 @@
                     <h3>Colonel le Corgi</h3>
                 </a>
                 <button type="delete-dog" class="btn btn-light delete_dog"><i class="fas fa-trash-alt"></i></button>
-                <button type="delete-dog" class="btn btn-light"><i class="fas fa-edit"></i></button>
+                <button type="delete-dog" class="btn btn-light" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
             </div>
         </div>
     </div>
@@ -126,8 +129,9 @@
         </div>
     </div>
 
-  </div>
-</div></div>
+    </div>
+</div>
+</div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
