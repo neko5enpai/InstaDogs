@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
     <link rel="stylesheet" href="Bootstrap/bootstrap-select-master/sass/bootstrap-select.scss">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css">
     <title>InstaDogs - Dog's Profile</title>
@@ -23,7 +24,7 @@
     <!-- Barre de Navigation Bootstrap -->
     <nav class="navbar navbar-expand-md navbar-light shadow-sm p-3 bg-white">
         <a class="navbar-brand" href="#">InstaDog<img class="logo" src="img/paw.png" alt="Logo InstaDog" width=50px
-                height=50px/></a>
+                height=50px /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -61,65 +62,69 @@
         <h2 style="font-size: 1.3rem; font-weight: 800;">Âge - Mâle/Femelle - Race du chien - Croisement</h2>
 
         <h3 style="font-size: 1rem; font-weight: 800;">Description du chien</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ante eu erat dictum tincidunt. Donec id felis at justo accumsan mollis. Ut mattis nisl felis, ut iaculis augue dictum a. Maecenas quis luctus ligula. Nunc accumsan arcu turpis, ac faucibus odio hendrerit eu. In ornare justo lectus, semper vulputate risus mollis vitae. Aenean in pellentesque mi. Curabitur vestibulum feugiat ligula, eu lacinia purus tempus in. Cras bibendum a mauris id pretium.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ante eu erat dictum tincidunt. Donec id
+            felis at justo accumsan mollis. Ut mattis nisl felis, ut iaculis augue dictum a. Maecenas quis luctus
+            ligula. Nunc accumsan arcu turpis, ac faucibus odio hendrerit eu. In ornare justo lectus, semper vulputate
+            risus mollis vitae. Aenean in pellentesque mi. Curabitur vestibulum feugiat ligula, eu lacinia purus tempus
+            in. Cras bibendum a mauris id pretium.</p>
 
-            <!-- Trigger the modal with a button -->
-    <div class="mt-3">
+        <!-- Trigger the modal with a button -->
+        <div class="mt-3">
             <button type="delete-dog" class="btn btn-light" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
-    
+
             <!-- Modal -->
             <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-    
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <!-- <h4 class="modal-title">Nouveau chien</h4> -->
-                </div>
-            <div class="modal-body"> <!-- Formulaire nouveau chien -->
-                <!-- <p>Some text in the modal.</p> -->
-                <form>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Nom du chien</label>
-                        <input class="form-control" type="text" placeholder="Insérez le nom de votre chien">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <!-- <h4 class="modal-title">Nouveau chien</h4> -->
+                        </div>
+                        <div class="modal-body">
+                            <!-- Formulaire nouveau chien -->
+                            <!-- <p>Some text in the modal.</p> -->
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Nom du chien</label>
+                                    <input class="form-control" type="text" placeholder="Insérez le nom de votre chien">
+                                </div>
+                                <div class="form-group">
+                                    <label>Date de naissance</label>
+                                    <input type="date" class="form-control" id="exampleInputDOB1" placeholder="Date of Birth">
+                                </div>
+                                <div class="form-group">
+                                    <label class="radio-inline mr-2">
+                                        <input type="radio" name="optradio" checked> Mâle
+                                    </label>
+                                    <label class="radio-inline mr-2">
+                                        <input type="radio" name="optradio"> Femelle
+                                    </label>
+                                    <label class="radio-inline mr-2">
+                                        <input type="radio" name="optradio"> Non spécifié
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Race du chien</label>
+                                    <input class="form-control" type="text" placeholder="Race du chien">
+                                    <label for="exampleFormControlInput1">Croisement</label>
+                                    <input class="form-control" type="text" placeholder="Croisement">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Description</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success" data-dismiss="modal">Ajouter</button>
+                        </div>
                     </div>
-                        <div class="form-group">
-                                <label>Date de naissance</label>
-                                <input type="date" class="form-control" id="exampleInputDOB1" placeholder="Date of Birth">
-                        </div>
-                        <div class="form-group">
-                            <label class="radio-inline mr-2">
-                                <input type="radio" name="optradio" checked> Mâle
-                            </label>
-                            <label class="radio-inline mr-2">
-                                <input type="radio" name="optradio"> Femelle
-                            </label>
-                            <label class="radio-inline mr-2">
-                                <input type="radio" name="optradio"> Non spécifié
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Race du chien</label>
-                            <input class="form-control" type="text" placeholder="Race du chien">
-                            <label for="exampleFormControlInput1">Croisement</label>
-                            <input class="form-control" type="text" placeholder="Croisement">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleFormControlTextarea1">Description</label>
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                      </form>
-    
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-success" data-dismiss="modal">Ajouter</button>
+
+                </div>
             </div>
         </div>
-    
-        </div>
-    </div>
-    </div>
 
         <div class="arrow-down">
             <a href="#dog-article">
@@ -132,94 +137,93 @@
 
             <div class="new-dog-article">
                 <!-- Trigger the modal with a button -->
-                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Ajouter un article</button>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Ajouter
+                    un article</button>
 
                 <!-- Modal -->
                 <div id="myModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
+                    <div class="modal-dialog">
 
-                <!-- Modal content-->
-                <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <!-- <h4 class="modal-title">Modal Header</h4> -->
-                </div>
-                <div class="modal-body">
-                    <!-- <p>Some text in the modal.</p> -->
-
-                    <!-- Formulaire nouvel article -->
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Titre de l'article</label>
-                            <input class="form-control" type="text" placeholder="Default input">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <!-- <h4 class="modal-title">Modal Header</h4> -->
+                            </div>
+                            <div class="modal-body">
+                                <!-- <p>Some text in the modal.</p> -->
+                                <!-- Formulaire nouvel article -->
+                                <form>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Titre de l'article</label>
+                                        <input class="form-control" type="text" placeholder="Default input">
+                                    </div>
+                                    <div class="form-group summernote">
+                                        <label for="exampleFormControlTextarea1">Contenu de l'article</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Envoyer</button>
+                            </div>
                         </div>
-                        
-                        
-
-                        <div class="form-group summernote">
-                            <label for="exampleFormControlTextarea1">Contenu de l'article</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-
-                    </form>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Envoyer</button>
-                </div>
-                </div>
-
-                </div>
+                    </div>
                 </div>
             </div>
-
-                <div class="mt-3 mb-3">
-                    <img class="img-fluid mx-auto d-block" src="img/8.jpg" alt="corgi trop chou avec des fleurs" /></img>
-                </div>
+            <div class="mt-3 mb-3">
+                <img class="img-fluid mx-auto d-block" src="img/8.jpg" alt="corgi trop chou avec des fleurs" /></img>
+            </div>
             <h3>Mon toutou, il aime les fleurs</h3>
             <p>
-                AAA Donec id felis at justo accumsan mollis. Ut mattis nisl felis, ut iaculis augue dictum a. Maecenas quis
+                AAA Donec id felis at justo accumsan mollis. Ut mattis nisl felis, ut iaculis augue dictum a. Maecenas
+                quis
                 luctus ligula. Nunc accumsan arcu turpis, ac faucibus odio hendrerit eu. In ornare justo lectus, semper
                 vulputate risus mollis vitae. Aenean in pellentesque mi. Curabitur vestibulum feugiat ligula, eu
                 lacinia purus tempus in. Cras bibendum a mauris id pretium.
             </p>
         </div>
-
         <h2 class="comment-title"><span class="comment-number ml-1">102</span> Commentaires</h2>
-        <a class="btn btn-primary mb-3" data-toggle="collapse" href="#comments" role="button" aria-expanded="false" aria-controls="collapseExample">
-        Voir les comentaires
+        <a class="btn btn-primary mb-3" data-toggle="collapse" href="#comments" role="button" aria-expanded="false"
+            aria-controls="collapseExample">
+            Voir les comentaires
         </a>
         <div class="collapse comments-container mt-3" id="comments">
             <div class="input-group mb-3">
-                    <span class="loged-person"><img class="comment-img mr-2" src="img/8.jpg" alt=""></span>
-                    <input type="text" class="form-control" placeholder="Ajouter un commentiare" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-outline-secondary" type="button" id="button-addon2">Ajouter un commentaire</button>
-                    </div>
+                <span class="loged-person"><img class="comment-img mr-2" src="img/8.jpg" alt=""></span>
+                <input type="text" class="form-control" placeholder="Ajouter un commentiare" aria-label="Recipient's username"
+                    aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Ajouter un commentaire</button>
+                </div>
             </div>
-            <div><img class="comment-img mr-2" src="img/8.jpg" alt=""><span class="comment-autor mr-3">Fluffy</span><span class="comment-date">18.06.2019</span></div>
-                <p>
-                    AAA Donec id felis at justo accumsan mollis. Ut mattis nisl felis, ut iaculis augue dictum a. Maecenas quis
-                    luctus ligula. Nunc accumsan arcu turpis, ac faucibus odio hendrerit eu. In ornare justo lectus, semper
-                    vulputate risus mollis vitae. Aenean in pellentesque mi. Curabitur vestibulum feugiat ligula, eu
-                    lacinia purus tempus in. Cras bibendum a mauris id pretium.
-                </p>
-            <div><img class="comment-img mr-2" src="img/8.jpg" alt=""><span class="comment-autor mr-3">Fluffy</span><span class="comment-date">18.06.2019</span></div>
+            <div><img class="comment-img mr-2" src="img/8.jpg" alt=""><span class="comment-autor mr-3">Fluffy</span><span
+                    class="comment-date">18.06.2019</span></div>
             <p>
-                AAA Donec id felis at justo accumsan mollis. Ut mattis nisl felis, ut iaculis augue dictum a. Maecenas quis
+                AAA Donec id felis at justo accumsan mollis. Ut mattis nisl felis, ut iaculis augue dictum a. Maecenas
+                quis
                 luctus ligula. Nunc accumsan arcu turpis, ac faucibus odio hendrerit eu. In ornare justo lectus, semper
                 vulputate risus mollis vitae. Aenean in pellentesque mi. Curabitur vestibulum feugiat ligula, eu
                 lacinia purus tempus in. Cras bibendum a mauris id pretium.
             </p>
-       
-        <div><img class="comment-img mr-2" src="img/8.jpg" alt=""><span class="comment-autor mr-3">Fluffy</span><span class="comment-date">18.06.2019</span></div>
-        <p>
-            AAA Donec id felis at justo accumsan mollis. Ut mattis nisl felis, ut iaculis augue dictum a. Maecenas quis
-            luctus ligula. Nunc accumsan arcu turpis, ac faucibus odio hendrerit eu. In ornare justo lectus, semper
-            vulputate risus mollis vitae. Aenean in pellentesque mi. Curabitur vestibulum feugiat ligula, eu
-            lacinia purus tempus in. Cras bibendum a mauris id pretium.
-        </p>
-    
+            <div><img class="comment-img mr-2" src="img/8.jpg" alt=""><span class="comment-autor mr-3">Fluffy</span><span
+                    class="comment-date">18.06.2019</span></div>
+            <p>
+                AAA Donec id felis at justo accumsan mollis. Ut mattis nisl felis, ut iaculis augue dictum a. Maecenas
+                quis
+                luctus ligula. Nunc accumsan arcu turpis, ac faucibus odio hendrerit eu. In ornare justo lectus, semper
+                vulputate risus mollis vitae. Aenean in pellentesque mi. Curabitur vestibulum feugiat ligula, eu
+                lacinia purus tempus in. Cras bibendum a mauris id pretium.
+            </p>
+            <div><img class="comment-img mr-2" src="img/8.jpg" alt=""><span class="comment-autor mr-3">Fluffy</span><span
+                    class="comment-date">18.06.2019</span></div>
+            <p>
+                AAA Donec id felis at justo accumsan mollis. Ut mattis nisl felis, ut iaculis augue dictum a. Maecenas
+                quis
+                luctus ligula. Nunc accumsan arcu turpis, ac faucibus odio hendrerit eu. In ornare justo lectus, semper
+                vulputate risus mollis vitae. Aenean in pellentesque mi. Curabitur vestibulum feugiat ligula, eu
+                lacinia purus tempus in. Cras bibendum a mauris id pretium.
+            </p>
         </div>
     </div>
 
