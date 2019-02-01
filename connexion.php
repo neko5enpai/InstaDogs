@@ -1,13 +1,22 @@
-login: adminInstaDog
-password: Inst@D0g
-
 <?php
 
-/* Cher Rodens,
-Je suis désolée, j'ai rien foutu de la matinée... et je ne suis pas là (01/02/2019)
-Mais si jamais je ne suis pas là de la journée, tu peux me contacter depuis WhatsApp
-Bisous moelleux de mes petits maskass. 
+class Connexion{
+    private $connexion;
 
-Virginie */
+    public function __construct(){
+        $HOST = 'localhost';
+        $DBNAME = 'InstaDog';
+        $USER = 'adminInstaDog';
+        $PASSWORD = 'Inst@D0g';
+
+        try{
+            $this->connexion = new PDO('mysql:host='.$HOST.';dbname='$DBNAME.$USER,$PASSWORD);
+        }catch(Exception $e){
+            echo 'Erreur : '.$e->getMessage().'<br>';
+            echo 'N° : '.$e->getCode();
+        }
+    }
+}
+
 
 ?>
