@@ -50,8 +50,16 @@
         </div>
     </nav>
 
-    <h1 class="user-name mt-3 text-center">Username</h1>
+    <?php
 
+    require ('php/connexion.php');
+
+    $app = new Connexion();
+    $user = $app->getUserById($_GET["id"]);
+    $userName = $user->getUserName();
+    echo '<h1 class="user-name mt-3 text-center">'.$userName.'</h1>'
+
+    ?>
         <div class="d-flex flex-wrap justify-content-center">
             <div class="dogs">
                 <a href="dog-profile.html">
