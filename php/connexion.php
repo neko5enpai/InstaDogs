@@ -71,7 +71,10 @@ class Connexion {
         return FALSE;
     }
 
-    
+    public function insertLastConnexionByUserName($userName,$lastLogin){
+        $rp = $this->connexion->prepare("UPDATE user SET latestLogin = :lastLogin WHERE userName =:userName");
+        $rp->execute(array('lastLogin'=>"$lastLogin",'userName'=>"$userName"));
+    }
 
 }
 

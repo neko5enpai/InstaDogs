@@ -40,7 +40,7 @@
                     <a class="nav-link" href="preview.html">Preview</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="profil.html">Profil</a>
+                    <a class="nav-link" href="profil.php">Profil</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
