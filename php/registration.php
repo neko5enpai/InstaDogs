@@ -10,7 +10,9 @@ $confirmPassword = $_POST['confirmpassword'];
 
 echo "$userName </br> $userPassword </br> $confirmPassword";
 
-$newId = $app->insertUser($userName, $userPassword, "2019-02-05");
+$latestLogin = date("Y-m-d");
+
+$newId = $app->insertUser($userName, $userPassword, $latestLogin);
 
 header("Location: /InstaDogs/profil.php?id=$newId", true, 303);
 

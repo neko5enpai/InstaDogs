@@ -59,6 +59,20 @@ class Connexion {
 			return $id;
     }
 
+    public function isLoginExists($login) {
+        $rp = $this->connexion->prepare("SELECT * FROM User WHERE userName=:userName");
+        $rp->execute(array('userName'=>$userName));
+
+        $row = $rp->rowCount();
+
+        if($row > 0) {
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    
+
 }
 
 
