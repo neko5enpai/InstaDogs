@@ -26,7 +26,7 @@
 <body>
   <!-- Barre de Navigation Bootstrap -->
   <nav class="navbar navbar-expand-md navbar-light shadow-sm p-3 bg-white">
-    <a class="navbar-brand" href="preview.html">InstaDog<img class="logo" src="img/paw.png" alt="Logo InstaDog"></a>
+    <a class="navbar-brand" href="preview.php">InstaDog<img class="logo" src="img/paw.png" alt="Logo InstaDog"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -36,13 +36,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="login.html">Login</a>
+          <a class="nav-link" href="login.php">Login</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Inscription</a>
+          <a class="nav-link" href="inscription.php">Inscription</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="preview.html">Preview</a>
+          <a class="nav-link" href="preview.php">Preview</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="profil.php">Profil</a>
