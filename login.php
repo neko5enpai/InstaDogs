@@ -54,15 +54,15 @@
 
     <div class="container mt-3">
 
-        <form>
+        <form  action="login.php" method="POST">
             <div class="form-group">
                 <label for="exampleInputUsername1">Votre nom d'utilisateur</label>
-                <input type="email" class="form-control" id="exampleInputUsername1" aria-describedby="emailHelp"
+                <input type="text" class="form-control" id="exampleInputUsername1" name="userName" aria-describedby="emailHelp"
                     placeholder="Nom d'utilisateur">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Mot de passe</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Mot de passe">
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -70,6 +70,22 @@
             </div>
             <button type="submit" class="btn btn-primary">Connexion</button>
         </form>
+        <?php
+        if(isset($_POST['userName'])){
+            require ("php/connexion.php");
+            var_dump($_POST);
+            $app = new Connexion();
+            $user=$app->getUserByUserName($_POST['userName']);
+            $hash=$user->getUserPassword();
+            $userId=$user->getId();
+            if(password_verify($_POST['password'],$hash)){
+                session_start();
+                $_SESSION['id'] = $userId; 
+                $app->insertLastConnexionByUserName($_POST['userName'],date("Y-m-d"));
+                header("Location: /projets/InstaDogs/profil.php?id=$userId");
+            }
+        }
+        ?>
     </div>
 
 
