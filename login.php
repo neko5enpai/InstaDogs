@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION['id'])){
+        header("location:profil.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,7 +88,7 @@
                 session_start();
                 $_SESSION['id'] = $userId; 
                 $app->insertLastConnexionByUserName($_POST['userName'],date("Y-m-d"));
-                header("Location: /projets/InstaDogs/profil.php?id=$userId");
+                header("Location: /projets/InstaDogs/profil.php");
             }
         }
         ?>

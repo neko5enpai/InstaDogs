@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -180,7 +181,7 @@
             </div>
 
             <div class="mt-3 mb-3">
-                <img class="img-fluid mx-auto d-block" src="img/8.jpg" alt="corgi trop chou avec des fleurs" /></img>
+                <img class="img-fluid mx-auto d-block" src="img/8.jpg" alt="corgi trop chou avec des fleurs" />
             </div>
 
 
@@ -202,14 +203,19 @@
             Voir les commentaires
         </a>
         <div class="collapse comments-container mt-3" id="comments">
-            <div class="input-group mb-3">
-                <span class="loged-person"><img class="comment-img mr-2" src="img/8.jpg" alt=""></span>
-                <input type="text" class="form-control" placeholder="Ajouter un commentiare" aria-label="Recipient's username"
-                    aria-describedby="button-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Ajouter un commentaire</button>
-                </div>
-            </div>
+            <?php if(isset($_SESSION["id"])) { ?>
+                <div class="input-group mb-3">
+                   <span class="loged-person"><img class="comment-img mr-2" src="img/8.jpg" alt=""></span>
+                   <input type="text" class="form-control" placeholder="Ajouter un commentiare" aria-label="Recipient's username"
+                       aria-describedby="button-addon2">
+                   <div class="input-group-append">
+                       <button class="btn btn-outline-secondary" type="button" id="button-addon2">Ajouter un commentaire</button>
+                   </div>
+               </div>
+            <?php } ?>
+
+         
+            
             <div><img class="comment-img mr-2" src="img/8.jpg" alt=""><span class="comment-autor mr-3">Fluffy</span><span
                     class="comment-date">18.06.2019</span></div>
             <p>

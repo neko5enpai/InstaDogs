@@ -81,7 +81,7 @@
           </label>
         </div>
       </div>
-      <input type="submit" class="btn btn-primary">Créer compte</input>
+      <button type="submit" class="btn btn-primary">Créer compte</button>
     </form>
   </div>
   <!-- INSCRIPTION FORM END-->
