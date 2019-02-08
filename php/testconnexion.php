@@ -6,15 +6,18 @@ $app = new Connexion();
 
 /* $app->insertBreed("Corgi"); */
 
-$dog=$app->getDog();
+/* $dog=$app->getDog(); */
 
 /* echo $dog->getDog(); */
-echo $dog[0]->getDogName();
-echo $dog[1]->getDogName();
+/* echo $dog[0]->getDogName();
+echo $dog[1]->getDogName(); */
 
-$user=$app->getUserById(1);
+/* $user=$app->getUserById(1);
 
-echo $user->getUserName();
+echo $user->getUserName(); */
+
+/* $userName=$app->isLoginExists();
+echo $userName->isLoginExists(); */
 
 
 
