@@ -49,6 +49,7 @@ class Connexion {
         return $user;
     }
 
+
     public function insertUser($userName, $password, $latestLogin) {
         $rp = $this->connexion->prepare("INSERT INTO User (userName, userPassword, latestLogin) VALUES (:userName, :userPassword, :latestLogin)");
         $rp->execute(
