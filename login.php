@@ -22,7 +22,7 @@
 <body>
     <!-- Barre de Navigation Bootstrap -->
     <nav class="navbar navbar-expand-md navbar-light shadow-sm p-3 bg-white">
-        <a class="navbar-brand" href="preview.html">InstaDog<img class="logo" src="img/paw.png" alt="Logo InstaDog"></a>
+        <a class="navbar-brand" href="preview.php">InstaDog<img class="logo" src="img/paw.png" alt="Logo InstaDog"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -32,13 +32,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="login.php">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="inscription.html">Inscription</a>
+                    <a class="nav-link" href="inscription.php">Inscription</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="preview.html">Preview</a>
+                    <a class="nav-link" href="preview.php">Preview</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="profil.php">Profil</a>
@@ -54,15 +54,15 @@
 
     <div class="container mt-3">
 
-        <form>
+        <form  action="login.php" method="POST">
             <div class="form-group">
                 <label for="exampleInputUsername1">Votre nom d'utilisateur</label>
-                <input type="email" class="form-control" id="exampleInputUsername1" aria-describedby="emailHelp"
+                <input type="text" class="form-control" id="exampleInputUsername1" name="userName" aria-describedby="emailHelp"
                     placeholder="Nom d'utilisateur">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Mot de passe</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Mot de passe">
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -70,6 +70,22 @@
             </div>
             <button type="submit" class="btn btn-primary">Connexion</button>
         </form>
+        <?php
+        if(isset($_POST['userName'])){
+            require ("php/connexion.php");
+            var_dump($_POST);
+            $app = new Connexion();
+            $user=$app->getUserByUserName($_POST['userName']);
+            $hash=$user->getUserPassword();
+            $userId=$user->getId();
+            if(password_verify($_POST['password'],$hash)){
+                session_start();
+                $_SESSION['id'] = $userId; 
+                $app->insertLastConnexionByUserName($_POST['userName'],date("Y-m-d"));
+                header("Location: /projets/InstaDogs/profil.php?id=$userId");
+            }
+        }
+        ?>
     </div>
 
 
