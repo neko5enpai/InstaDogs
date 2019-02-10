@@ -88,7 +88,7 @@
                 session_start();
                 $_SESSION['id'] = $userId; 
                 $app->insertLastConnexionByUserName($_POST['userName'],date("Y-m-d"));
-                header("Location: /projets/InstaDogs/profil.php");
+                header("Location: /tests/InstaDogs/profil.php");
             }
         }
         ?>

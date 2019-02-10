@@ -1,4 +1,10 @@
-<?php session_start();?>
+<?php 
+include("php/connexion.php");
+
+session_start();
+$app=new Connexion();
+$dog=$app->getDogById($_GET['id']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +24,18 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css">
+    
+    <style>
+    .parallax {
+    background: url(<?php echo $dog->getPhotoURL();?>);
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    
+    </style>
     <title>InstaDogs - Dog's Profile</title>
 </head>
 
@@ -57,7 +75,8 @@
     </div>
 
     <div class="container mt-3">
-        <h1>Nom du chien</h1>
+
+        <h1><?php echo $dog->getDogName() ?></h1>
 
         <h2 style="font-size: 1.3rem; font-weight: 800;">Âge - Mâle/Femelle - Race du chien - Croisement</h2>
 

@@ -10,9 +10,9 @@ if (($_POST['username']) AND ($_POST['password']) AND ($_POST['confirmpassword']
     $newId = $app->insertUser($userName, $userPassword, "2019-02-05");
     session_start();
     $_SESSION['id'] = $newId;
-    header("Location: /projets/InstaDogs/profil.php", true, 303);
+    header("Location: /tests/InstaDogs/profil.php", true, 303);
     exit;
 }else{
-    header("Location: /projets/InstaDogs/inscription.php");
+    header("Location: /tests/InstaDogs/inscription.php");
 }
 ?>
