@@ -7,7 +7,9 @@ class Dog {
     private $dogName;
     private $nickname;
     private $gender;
-    private $article;
+    private $breed;
+    private $crossBreeding;
+    private $photoURL;
 
     public function getDogId() {
         return $this->id;
@@ -16,6 +18,16 @@ class Dog {
         return $this->dogName;
     }
 
+    
+
+
+    /**
+     * Get the value of photoURL
+     */ 
+    public function getPhotoURL()
+    {
+        return $this->photoURL;
+    }
 }
 
 ?>

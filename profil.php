@@ -68,7 +68,7 @@
             echo '
                     <div class="dogs">
                         <a href="dog-profile.php?id='.$dog->getDogId().'">
-                            <img width="200px" height="200px" class="img-thumbnail" src="'.$dog->getProfilePic().' "alt="...">
+                            <img width="200px" height="200px" class="img-thumbnail" src="'.$dog->getPhotoURL().' "alt="...">
                             <h3>'.$dog->getDogName().'</h3>
                         </a>
                         <button type="button" class="btn btn-light delete_dog"><i class="fas fa-trash-alt"></i></button>
@@ -76,31 +76,27 @@
                     </div>';
         }
         
-        ?>
-        <?php
-            var_dump($_POST);
-                if(!empty($_POST["dogName"])){
-                    $userId=$_SESSION['id'];
-                    $age=$_POST["birthDate"];
-                    $dogName = $_POST["dogName"];
-                    $nickname=$_POST["nickname"];
-                    $gender=$_POST["optradio"];
-                    $breed=$_POST["race"];
-                    $crossed=$_POST["croisement"];
-                    
-                    $suffixe = date("YmdHis");
-                    $uploadedFileName = $_FILES["dogProfilePic"]["name"];
-                    $uploadedFile = new SplFileInfo($uploadedFileName);
-                    $fileExtension = $uploadedFile->getExtension();
-                    $destinationFolder = $_SERVER['DOCUMENT_ROOT']."/projets/InstaDogs/";
-                    $destinationName = "img/photo-".$suffixe.".".$fileExtension;
-                    
-                    if(move_uploaded_file($_FILES["dogProfilePic"]["tmp_name"], $destinationFolder.$destinationName)){
-                        echo "<br/> fichier enregistré avec succes";
-                    }
-                    $dogId=$app->insertDog($userId,$age,$dogName,$nickname,$gender,$breed,$crossed,$destinationName);
-                    
-                }
+        if(!empty($_POST["dogName"])){
+            $userId=$_SESSION['id'];
+            $age=$_POST["birthDate"];
+            $dogName = $_POST["dogName"];
+            $nickname=$_POST["nickname"];
+            $gender=$_POST["optradio"];
+            $breed=$_POST["race"];
+            $crossed=$_POST["croisement"];
+            
+            $suffixe = date("YmdHis");
+            $uploadedFileName = $_FILES["dogProfilePic"]["name"];
+            $uploadedFile = new SplFileInfo($uploadedFileName);
+            $fileExtension = $uploadedFile->getExtension();
+            $destinationFolder = $_SERVER['DOCUMENT_ROOT']."/tests/InstaDogs/";
+            $destinationName = "img/photo-".$suffixe.".".$fileExtension;
+            
+            if(move_uploaded_file($_FILES["dogProfilePic"]["tmp_name"], $destinationFolder.$destinationName)){
+                echo "<br/> fichier enregistré avec succes";
+            }
+            $dogId=$app->insertDog($userId,$age,$dogName,$nickname,$gender,$breed,$crossed,$destinationName);
+        }
         ?>
     </div>
 
@@ -121,7 +117,7 @@
                     <div class="modal-body">
                         <!-- Formulaire nouveau chien -->
                         <!-- <p>Some text in the modal.</p> -->
-                        <form class="registration" action="profil.php?>" method="POST" enctype="multipart/form-data">
+                        <form class="registration" action="profil.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Nom du chien</label>
                                 <input id="exampleFormControlInput1" class="form-control" name="dogName" type="text"
@@ -157,7 +153,9 @@
                                 <label for="exampleFormControlInput1">Croisé</label>
                                 <input class="form-control" type="text" placeholder="Croisement" name="croisement">
                             </div>
+                            <a href="profil.php">
                             <input type="submit" id="insert" class="btn btn-success">
+                            </a>
                         </form>
                                 <div class="modal-footer">
                                     <button  type="button" class="btn btn-default" data-dismiss="modal">Close</button>

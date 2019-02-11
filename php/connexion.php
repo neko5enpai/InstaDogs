@@ -31,6 +31,14 @@ class Connexion {
         // Je retourne/renvoie la liste de hobby
         return $dog;
     }
+
+    public function getDogById($id){
+        $rp=$this->connexion->prepare("SELECT * FROM dog WHERE Id=:id");
+        $rp->execute(array('id'=>$id));
+        $dog = $rp->fetchObject("Dog");
+        return $dog;
+    }
+
     public function getUserById($id) {
         $rp = $this->connexion->prepare("SELECT * FROM User WHERE Id=:id");
         $rp->execute(array('id'=>"$id"));
@@ -55,12 +63,12 @@ class Connexion {
         $rp = $this->connexion->prepare("UPDATE user SET latestLogin = :lastLogin WHERE userName =:userName");
         $rp->execute(array('lastLogin'=>"$lastLogin",'userName'=>"$userName"));
     }
-    public function insertDog($userId,$age,$dogName,$nickname,$gender,$profilePic,$breed,$crossed){
-        $rp= $this->connexion->prepare ("INSERT INTO Dog (userId, age, dogName, nickname, gender, photoURL, breed, crossBreeding) 
-                                        VALUES (:userId,:age,:dogName,:nickname,:gender,:profilePic,:breed,:crossed)");
-        
-        $rp->execute(array("userId"=>$userId,"age"=>$age,"dogName"=>$dogName,"nickname"=>$nickname,"gender"=>$gender,"photoURL"=>$profilePic,"breed"=>$breed,"crossBreeding"=>$crossed));
+
+    public function insertDog($userId,$age,$dogName,$nickname,$gender,$breed,$crossed,$photoURL){
+        $rp=$this->connexion->prepare("INSERT INTO dog (userId, age, dogName, nickname, gender, breed,crossBreeding,photoURL) VALUES (:userID,:age,:dogName,:nickname,:gender,:breed,:crossBreeding,:photoURL)");
+        $rp->execute(array("userID"=>$userId,"age"=>$age,"dogName"=>$dogName,"nickname"=>$nickname,"gender"=>$gender,"breed"=>$breed,"crossBreeding"=>$crossed,"photoURL"=>$photoURL));
     }
+
     public function getDogByUserId($userId){
         $rp=$this->connexion->prepare("SELECT * FROM dog WHERE userId=:userId");
         $rp->execute(array('userId'=>$userId));

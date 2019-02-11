@@ -76,9 +76,7 @@
       <div class="form-group">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" id="gridCheck">
-          <label class="form-check-label" for="gridCheck">
-            Rester connecté
-          </label>
+          <label class="form-check-label" for="gridCheck">Rester connecté</label>
         </div>
       </div>
       <button type="submit" class="btn btn-primary">Créer compte</button>
