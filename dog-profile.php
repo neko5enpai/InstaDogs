@@ -1,3 +1,10 @@
+<?php 
+include("php/connexion.php");
+
+session_start();
+$app=new Connexion();
+$dog=$app->getDogById($_GET['id']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +24,18 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css">
+    
+    <style>
+    .parallax {
+    background: url(<?php echo $dog->getPhotoURL();?>);
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    
+    </style>
     <title>InstaDogs - Dog's Profile</title>
 </head>
 
@@ -56,11 +75,12 @@
     </div>
 
     <div class="container mt-3">
-        <h1>Nom du chien</h1>
 
-        <h2 style="font-size: 1.3rem; font-weight: 800;">Âge - Mâle/Femelle - Race du chien - Croisement</h2>
+        <h1><?php echo $dog->getDogName().' <small>aka</small> '.$dog->getNickname() ?></h1>
 
-        <h3 style="font-size: 1rem; font-weight: 800;">Description du chien</h3>
+        <h2 style="font-size: 1.3rem; font-weight: 800;"><?php echo $dog->getAge().'- '.$dog->getGender().' - '.$dog->getBreed().' - '.$dog->getCrossBreeding()?></h2>
+
+        <h3 style="font-size: 1rem; font-weight: 800;">Who am I :</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ante eu erat dictum tincidunt. Donec id
             felis at justo accumsan mollis. Ut mattis nisl felis, ut iaculis augue dictum a. Maecenas quis luctus
             ligula. Nunc accumsan arcu turpis, ac faucibus odio hendrerit eu. In ornare justo lectus, semper vulputate
@@ -180,11 +200,6 @@
             </div>
 
             <div class="mt-3 mb-3">
-                <img class="img-fluid mx-auto d-block" src="img/8.jpg" alt="corgi trop chou avec des fleurs" /></img>
-            </div>
-
-
-            <div class="mt-3 mb-3">
                 <img class="img-fluid mx-auto d-block" src="img/8.jpg" alt="corgi trop chou avec des fleurs" />
             </div>
             <p>
@@ -202,14 +217,19 @@
             Voir les commentaires
         </a>
         <div class="collapse comments-container mt-3" id="comments">
-            <div class="input-group mb-3">
-                <span class="loged-person"><img class="comment-img mr-2" src="img/8.jpg" alt=""></span>
-                <input type="text" class="form-control" placeholder="Ajouter un commentiare" aria-label="Recipient's username"
-                    aria-describedby="button-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Ajouter un commentaire</button>
-                </div>
-            </div>
+            <?php if(isset($_SESSION["id"])) { ?>
+                <div class="input-group mb-3">
+                   <span class="loged-person"><img class="comment-img mr-2" src="img/8.jpg" alt=""></span>
+                   <input type="text" class="form-control" placeholder="Ajouter un commentiare" aria-label="Recipient's username"
+                       aria-describedby="button-addon2">
+                   <div class="input-group-append">
+                       <button class="btn btn-outline-secondary" type="button" id="button-addon2">Ajouter un commentaire</button>
+                   </div>
+               </div>
+            <?php } ?>
+
+         
+            
             <div><img class="comment-img mr-2" src="img/8.jpg" alt=""><span class="comment-autor mr-3">Fluffy</span><span
                     class="comment-date">18.06.2019</span></div>
             <p>
