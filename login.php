@@ -23,6 +23,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>InstaDog - Login</title>
+    <link rel="shortcut icon" href="InstaDogs/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -88,7 +89,7 @@
                 session_start();
                 $_SESSION['id'] = $userId; 
                 $app->insertLastConnexionByUserName($_POST['userName'],date("Y-m-d"));
-                header("Location: /tests/InstaDogs/profil.php");
+                header("Location: /projets/InstaDogs/profil.php");
             }
         }
         ?>

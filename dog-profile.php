@@ -76,11 +76,11 @@ $dog=$app->getDogById($_GET['id']);
 
     <div class="container mt-3">
 
-        <h1><?php echo $dog->getDogName() ?></h1>
+        <h1><?php echo $dog->getDogName().' <small>aka</small> '.$dog->getNickname() ?></h1>
 
-        <h2 style="font-size: 1.3rem; font-weight: 800;">Âge - Mâle/Femelle - Race du chien - Croisement</h2>
+        <h2 style="font-size: 1.3rem; font-weight: 800;"><?php echo $dog->getAge().'- '.$dog->getGender().' - '.$dog->getBreed().' - '.$dog->getCrossBreeding()?></h2>
 
-        <h3 style="font-size: 1rem; font-weight: 800;">Description du chien</h3>
+        <h3 style="font-size: 1rem; font-weight: 800;">Who am I :</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper ante eu erat dictum tincidunt. Donec id
             felis at justo accumsan mollis. Ut mattis nisl felis, ut iaculis augue dictum a. Maecenas quis luctus
             ligula. Nunc accumsan arcu turpis, ac faucibus odio hendrerit eu. In ornare justo lectus, semper vulputate
@@ -198,11 +198,6 @@ $dog=$app->getDogById($_GET['id']);
                     </div>
                 </div>
             </div>
-
-            <div class="mt-3 mb-3">
-                <img class="img-fluid mx-auto d-block" src="img/8.jpg" alt="corgi trop chou avec des fleurs" />
-            </div>
-
 
             <div class="mt-3 mb-3">
                 <img class="img-fluid mx-auto d-block" src="img/8.jpg" alt="corgi trop chou avec des fleurs" />

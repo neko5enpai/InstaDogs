@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
         crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>InstaDog - Login</title>
 </head>
 
@@ -89,7 +90,7 @@
             $uploadedFileName = $_FILES["dogProfilePic"]["name"];
             $uploadedFile = new SplFileInfo($uploadedFileName);
             $fileExtension = $uploadedFile->getExtension();
-            $destinationFolder = $_SERVER['DOCUMENT_ROOT']."/tests/InstaDogs/";
+            $destinationFolder = $_SERVER['DOCUMENT_ROOT']."/projets/InstaDogs/";
             $destinationName = "img/photo-".$suffixe.".".$fileExtension;
             
             if(move_uploaded_file($_FILES["dogProfilePic"]["tmp_name"], $destinationFolder.$destinationName)){

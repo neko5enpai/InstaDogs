@@ -33,7 +33,7 @@ class Connexion {
     }
 
     public function getDogById($id){
-        $rp=$this->connexion->prepare("SELECT * FROM dog WHERE Id=:id");
+        $rp=$this->connexion->prepare("SELECT * FROM Dog WHERE Id=:id");
         $rp->execute(array('id'=>$id));
         $dog = $rp->fetchObject("Dog");
         return $dog;
@@ -60,17 +60,17 @@ class Connexion {
         return $user;
     }
     public function insertLastConnexionByUserName($userName,$lastLogin){
-        $rp = $this->connexion->prepare("UPDATE user SET latestLogin = :lastLogin WHERE userName =:userName");
+        $rp = $this->connexion->prepare("UPDATE User SET latestLogin = :lastLogin WHERE userName =:userName");
         $rp->execute(array('lastLogin'=>"$lastLogin",'userName'=>"$userName"));
     }
 
     public function insertDog($userId,$age,$dogName,$nickname,$gender,$breed,$crossed,$photoURL){
-        $rp=$this->connexion->prepare("INSERT INTO dog (userId, age, dogName, nickname, gender, breed,crossBreeding,photoURL) VALUES (:userID,:age,:dogName,:nickname,:gender,:breed,:crossBreeding,:photoURL)");
+        $rp=$this->connexion->prepare("INSERT INTO Dog (userId, age, dogName, nickname, gender, breed,crossBreeding,photoURL) VALUES (:userID,:age,:dogName,:nickname,:gender,:breed,:crossBreeding,:photoURL)");
         $rp->execute(array("userID"=>$userId,"age"=>$age,"dogName"=>$dogName,"nickname"=>$nickname,"gender"=>$gender,"breed"=>$breed,"crossBreeding"=>$crossed,"photoURL"=>$photoURL));
     }
 
     public function getDogByUserId($userId){
-        $rp=$this->connexion->prepare("SELECT * FROM dog WHERE userId=:userId");
+        $rp=$this->connexion->prepare("SELECT * FROM Dog WHERE userId=:userId");
         $rp->execute(array('userId'=>$userId));
         $dogs=$rp->fetchAll(PDO::FETCH_CLASS, "Dog");
         return $dogs;
