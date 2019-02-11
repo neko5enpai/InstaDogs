@@ -45,6 +45,7 @@ class Connexion {
         $id = $this->connexion->lastInsertId();
 			return $id;
     }
+
     public function getUserByUserName($userName){
         $rp = $this->connexion->prepare("SELECT * FROM User WHERE userName=:userName");
         $rp->execute(array('userName'=>"$userName"));

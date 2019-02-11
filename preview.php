@@ -63,16 +63,26 @@
                     <h2>Compact Gallery</h2>
                 </div> -->
                 <div class="row no-gutters">
-                    <div class="col-md-6 col-lg-4 item zoom-on-hover">
-                        <a class="lightbox" href="img/dogs/11504.jpg">
-                            <img class="img-fluid image" src="img/dogs/11504.jpg" alt="chien">
+                    <?php
+                    require ('php/connexion.php');
+
+                    $app = new Connexion();
+
+                    $dogs = $app->getDog();
+
+                    foreach($dogs as $dog) {
+                    echo '<div class="col-md-6 col-lg-4 item zoom-on-hover">
+                        <a class="lightbox" href=?id='.$dog->getDogId.'"'.$dog->getPhotoURL().'">
+                            <img class="img-fluid image" src="'.$dog->getPhotoURL().'" alt="chien">
                             <span class="description">
-                                <span class="description-heading">Lorem Ipsum</span>
+                                <span class="description-heading">'.$dog->getDogName().'</span>
                                 <span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
                             </span>
                         </a>
-                    </div>
-                    <div class="col-md-6 col-lg-4 item zoom-on-hover">
+                    </div>';
+                    }
+                    ?>
+                    <!-- <div class="col-md-6 col-lg-4 item zoom-on-hover">
                         <a class="lightbox" href="img/dogs/242.jpg">
                             <img class="img-fluid image" src="img/dogs/242.jpg" alt="chien">
                             <span class="description">
@@ -143,7 +153,7 @@
                                 <span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
                             </span>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
