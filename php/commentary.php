@@ -1,5 +1,7 @@
 <?php
 
+    require ('dog-profile.php');
+
 class Commentary {
     private $id;
     private $userId;
@@ -7,5 +9,7 @@ class Commentary {
     private $commentaryText;
     private $commentaryDate;
 }
+
+
 
 ?>

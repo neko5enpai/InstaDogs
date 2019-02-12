@@ -53,6 +53,7 @@ class Connexion {
         $id = $this->connexion->lastInsertId();
 			return $id;
     }
+
     public function getUserByUserName($userName){
         $rp = $this->connexion->prepare("SELECT * FROM User WHERE userName=:userName");
         $rp->execute(array('userName'=>"$userName"));
@@ -65,8 +66,8 @@ class Connexion {
     }
 
     public function insertDog($userId,$age,$dogName,$nickname,$gender,$breed,$crossed,$photoURL){
-        $rp=$this->connexion->prepare("INSERT INTO Dog (userId, age, dogName, nickname, gender, breed,crossBreeding,photoURL) VALUES (:userID,:age,:dogName,:nickname,:gender,:breed,:crossBreeding,:photoURL)");
-        $rp->execute(array("userID"=>$userId,"age"=>$age,"dogName"=>$dogName,"nickname"=>$nickname,"gender"=>$gender,"breed"=>$breed,"crossBreeding"=>$crossed,"photoURL"=>$photoURL));
+        $rp=$this->connexion->prepare("INSERT INTO Dog (userId, age, dogName, nickname, gender, breed,crossBreeding,photoURL) VALUES (:userId,:age,:dogName,:nickname,:gender,:breed,:crossBreeding,:photoURL)");
+        $rp->execute(array("userId"=>$userId,"age"=>$age,"dogName"=>$dogName,"nickname"=>$nickname,"gender"=>$gender,"breed"=>$breed,"crossBreeding"=>$crossed,"photoURL"=>$photoURL));
     }
 
     public function getDogByUserId($userId){
@@ -76,7 +77,22 @@ class Connexion {
         return $dogs;
     }
 
-    
+    public function insertComment($userId, $articleId, $commentaryText, $commentaryDate) {
+        $rp = $this->connexion->prepare("INSERT INTO Commentary (userId, articleId, commentaryText, commentaryDate) VALUES (:userId, :articleId, :commentaryText, :commentaryDate)");
+        $rp->execute(array("userId"=>$userId, "articleId"=>$articleId, "commentaryText"=>$commentaryText, "commentaryDate"=>$commentaryDate));
+    }
+
+    public function getCommentByArticle($articleId) {
+        $rp=$this->connexion->prepare("SELECT * FROM Commentary WHERE articleId=:articleId");
+        $rp->execute(array("articleId"=>$articleId));
+        $comment=$rp->fetchAll(PDO::FETCH_CLASS, "Commentary");
+        return $comment;
+    }
+
+    public function insertArticleByDogId($dogId) {
+        $rp=$this->connexion-prepare("INSERT INTO Article (dogId, articleDate, articleImage, articleText) VALUES (:dogId, :articleDate, :articleImage, :articleText)");
+        $rp->execute(array("dogId"=>$dogId, "articleId"=>$articleId, "articleDate"=>$articleDate, "articleImage"=>$articleImage, "articleText"=>$articleText));
+    }
 
 }
 
