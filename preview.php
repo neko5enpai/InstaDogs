@@ -72,7 +72,7 @@
 
                     foreach($dogs as $dog) {
                     echo '<div class="col-md-6 col-lg-4 item zoom-on-hover">
-                        <a class="lightbox" href=?id='.$dog->getDogId.'"'.$dog->getPhotoURL().'">
+                        <a class="lightbox" href="dog-profile.php?id='.$dog->getDogId().'"'.$dog->getPhotoURL().'">
                             <img class="img-fluid image" src="'.$dog->getPhotoURL().'" alt="chien">
                             <span class="description">
                                 <span class="description-heading">'.$dog->getDogName().'</span>

@@ -10,8 +10,6 @@ class Commentary {
     private $commentaryDate;
 }
 
-public function insertCommentary($commentaryText, $commentaryDate) {
-    
-}
+
 
 ?>
