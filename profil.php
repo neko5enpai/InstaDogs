@@ -27,7 +27,6 @@
 </head>
 
 <body>
-
     <!-- Barre de Navigation Bootstrap -->
     <nav class="navbar navbar-expand-md navbar-light shadow-sm p-3 bg-white">
         <a class="navbar-brand" href="preview.php">InstaDog<img class="logo" src="img/paw.png" alt="Logo InstaDog"></a>
@@ -57,175 +56,150 @@
         </div>
     </nav>
 
-    <?php
-    require ('php/connexion.php');
-    $app = new Connexion();
-    $user = $app->getUserById($_SESSION['id']);
-    $userName = $user->getUserName();
-    echo '<h1 class="user-name mt-3 text-center">'.$userName.'</h1>';
-        $dogs = $app->getDogByUserId($_SESSION['id']);
-        echo '<div class="d-flex flex-wrap justify-content-center">';
-        foreach($dogs as $dog){
-            echo '
-                    <div class="dogs">
-                        <a href="dog-profile.php?id='.$dog->getDogId().'">
-                            <img width="200px" height="200px" class="img-thumbnail" src="'.$dog->getPhotoURL().' "alt="...">
-                            <h3>'.$dog->getDogName().'</h3>
-                        </a>
-                        <button type="button" class="btn btn-light delete_dog"><i class="fas fa-trash-alt"></i></button>
-                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal'.$dog->getDogId().'"><i class="fas fa-edit"></i></button>
-
-                        <!-- Modal -->
-                        <div id="myModal'.$dog->getDogId().'" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
-                
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <!-- Formulaire nouveau chien -->
-                                        <!-- <p>Some text in the modal.</p> -->
-                                        <form class="registration" action="profil.php" method="POST" enctype="multipart/form-data">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">Nom du chien</label>
-                                                <input id="exampleFormControlInput1" class="form-control" name="dogName" type="text"
-                                                    value="'.$dog->getDogName().'">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">Surnom</label>
-                                                <input id="exampleFormControlInput2" class="form-control" name="nickname" type="text"
-                                                    placeholder="Insérez le nom de votre chien">
-                                            </div>
-                                            <div class="">
-                                                <label class="" for="profilPicInput">Inserer photo de profile</label>
-                                                <input id="profilPicInput" class="" name="dogProfilePic" type="file">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Date de naissance</label>
-                                                <input type="date" class="form-control" id="exampleInputDOB1" name="birthDate">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="radio-inline mr-2">
-                                                    <input type="radio" name="optradio" value="Mâle" checked> Mâle
-                                                </label>
-                                                <label class="radio-inline mr-2">
-                                                    <input type="radio" name="optradio" value="Femelle"> Femelle
-                                                </label>
-                                                <label class="radio-inline mr-2">
-                                                    <input type="radio" name="optradio" value="Non spécifié"> Non spécifié
-                                                </label>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">Race du chien</label>
-                                                <input class="form-control" type="text" placeholder="Race du chien" name="race">
-                                                <label for="exampleFormControlInput1">Croisé</label>
-                                                <input class="form-control" type="text" placeholder="Croisement" name="croisement">
-                                            </div>
-                                            <a href="profil.php">
-                                            <input type="submit" id="insert" class="btn btn-success">
-                                            </a>
-                                        </form>
-                                                <div class="modal-footer">
-                                                    <button  type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    </div>'
-                    ;
-        }
-        
-        if(!empty($_POST["dogName"])){
-            $userId=$_SESSION['id'];
-            $age=$_POST["birthDate"];
-            $dogName = $_POST["dogName"];
-            $nickname=$_POST["nickname"];
-            $gender=$_POST["optradio"];
-            $breed=$_POST["race"];
-            $crossed=$_POST["croisement"];
-            
-            $suffixe = date("YmdHis");
-            $uploadedFileName = $_FILES["dogProfilePic"]["name"];
-            $uploadedFile = new SplFileInfo($uploadedFileName);
-            $fileExtension = $uploadedFile->getExtension();
-            $destinationFolder = $_SERVER['DOCUMENT_ROOT']."/projets/InstaDogs/";
-            $destinationName = "img/photo-".$suffixe.".".$fileExtension;
-            
-            if(move_uploaded_file($_FILES["dogProfilePic"]["tmp_name"], $destinationFolder.$destinationName)){
-                echo "<br/> fichier enregistré avec succes";
-            }
-            $dogId=$app->insertDog($userId,$age,$dogName,$nickname,$gender,$breed,$crossed,$destinationName);
-        }
-        ?>
-    </div>
-
-    <!-- Trigger the modal with a button -->
-    <div class="container mt-3">
-        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Add new dog</button>
-
+<?php
+require ('php/connexion.php');
+$app = new Connexion();
+$user = $app->getUserById($_SESSION['id']);
+$userName = $user->getUserName();
+echo '<h1 class="user-name mt-3 text-center">'.$userName.'</h1>';
+$dogs = $app->getDogByUserId($_SESSION['id']);
+echo '<div class="d-flex flex-wrap justify-content-center">';
+foreach($dogs as $dog){ ?>
+        <div class="dogs">
+            <a href="dog-profile.php?id=<?php echo $dog->getDogId()?>">
+                <img width="200px" height="200px" class="img-thumbnail" src="<?php echo $dog->getPhotoURL()?>" alt="...">
+                <h3><?php echo $dog->getDogName()?></h3>
+            </a>
+            <button type="button" class="btn btn-light delete_dog"><i class="fas fa-trash-alt"></i></button>
+            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal<?php echo $dog->getDogId()?>"><i
+                    class="fas fa-edit"></i></button>
+            </div>  
         <!-- Modal -->
-        <div id="myModal" class="modal fade" role="dialog">
+        <div id="myModal<?php echo $dog->getDogId()?>" class="modal fade" role="dialog">
             <div class="modal-dialog">
-
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <!-- <h4 class="modal-title">Nouveau chien</h4> -->
-                    </div>
                     <div class="modal-body">
                         <!-- Formulaire nouveau chien -->
                         <!-- <p>Some text in the modal.</p> -->
-                        <form class="registration" action="profil.php" method="POST" enctype="multipart/form-data">
+                        <form class="registration" action="modif-dog.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">Nom du chien</label>
-                                <input id="exampleFormControlInput1" class="form-control" name="dogName" type="text"
-                                    placeholder="Insérez le nom de votre chien">
+                                <label for="exampleFormControlInput<?php echo $dog->getDogId()?>">Nom du chien</label>
+                                <input id="exampleFormControlInput<?php echo $dog->getDogId()?>" class="form-control" name="dogName" type="text"
+                                    value="<?php echo $dog->getDogName()?>">
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlInput2">Surnom</label>
-                                <input id="exampleFormControlInput2" class="form-control" name="nickname" type="text"
-                                    placeholder="Insérez le nom de votre chien">
+                                <label for="exampleFormControlInput<?php echo $dog->getDogId()+1?>">Surnom</label>
+                                <input id="exampleFormControlInput<?php echo $dog->getDogId()+1?>" class="form-control" name="nickname" type="text"
+                                    placeholder="Insérez le nom de votre chien" value="<?php echo $dog->getNickname()?>">
                             </div>
                             <div class="">
                                 <label class="" for="profilPicInput">Inserer photo de profile</label>
                                 <input id="profilPicInput" class="" name="dogProfilePic" type="file">
                             </div>
                             <div class="form-group">
-                                <label>Date de naissance</label>
-                                <input type="date" class="form-control" id="exampleInputDOB1" name="birthDate">
+                                <label class="mt-2">Date de naissance</label>
+                                <input type="date" class="form-control" name="birthDate" value="<?php echo $dog->getAge()?>">
                             </div>
                             <div class="form-group">
                                 <label class="radio-inline mr-2">
-                                    <input type="radio" name="optradio" value="Mâle" checked> Mâle
+                                    <input type="radio" name="optradio" value="Mâle" <?php echo ($dog->getGender()==="Mâle"?"checked":"");?>> Mâle
                                 </label>
                                 <label class="radio-inline mr-2">
-                                    <input type="radio" name="optradio" value="Femelle"> Femelle
+                                    <input type="radio" name="optradio" value="Femelle" <?php echo ($dog->getGender()==="Femelle"?"checked":"");?>> Femelle
                                 </label>
                                 <label class="radio-inline mr-2">
-                                    <input type="radio" name="optradio" value="Non spécifié"> Non spécifié
+                                    <input type="radio" name="optradio" value="Non spécifié" <?php echo ($dog->getGender()==="Non spécifié"?"checked":"");?>> Non spécifié
                                 </label>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">Race du chien</label>
-                                <input class="form-control" type="text" placeholder="Race du chien" name="race">
-                                <label for="exampleFormControlInput1">Croisé</label>
-                                <input class="form-control" type="text" placeholder="Croisement" name="croisement">
+                                <label for="exampleFormControlInput<?php echo $dog->getDogId()+2?>">Race du chien</label>
+                                <input class="form-control mt-2 mb-2" type="text" placeholder="Race du chien" name="race" value="<?php echo $dog->getBreed()?>">
+                                <label for="exampleFormControlInput<?php echo $dog->getDogId()+3?>">Croisé</label>
+                                <input  class="form-control mt-2" type="text" placeholder="Croisement" name="croisement" value="<?php echo $dog->getCrossBreeding()?>">
                             </div>
                             <a href="profil.php">
-                            <input type="submit" id="insert" class="btn btn-success">
+                                <input type="submit" id="insert" class="btn btn-success">
                             </a>
                         </form>
-                                <div class="modal-footer">
-                                    <button  type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+<?php }?>
+    
+    
+    
+</div>
+
+<!-- Trigger the modal with a button -->
+<div class="container mt-3">
+    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Add new dog</button>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <!-- <h4 class="modal-title">Nouveau chien</h4> -->
+                </div>
+                <div class="modal-body">
+                    <!-- Formulaire nouveau chien -->
+                    <!-- <p>Some text in the modal.</p> -->
+                    <form class="registration" action="modif-dog.php" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Nom du chien</label>
+                            <input id="exampleFormControlInput1" class="form-control" name="dogName" type="text"
+                                placeholder="Insérez le nom de votre chien">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput2">Surnom</label>
+                            <input id="exampleFormControlInput2" class="form-control" name="nickname" type="text"
+                                placeholder="Insérez le nom de votre chien">
+                        </div>
+                        <div class="">
+                            <label class="" for="profilPicInput">Inserer photo de profile</label>
+                            <input id="profilPicInput" class="" name="dogProfilePic" type="file">
+                        </div>
+                        <div class="form-group">
+                            <label>Date de naissance</label>
+                            <input type="date" class="form-control" id="exampleInputDOB1" name="birthDate">
+                        </div>
+                        <div class="form-group">
+                            <label class="radio-inline mr-2">
+                                <input type="radio" name="optradio" value="Mâle" checked> Mâle
+                            </label>
+                            <label class="radio-inline mr-2">
+                                <input type="radio" name="optradio" value="Femelle"> Femelle
+                            </label>
+                            <label class="radio-inline mr-2">
+                                <input type="radio" name="optradio" value="Non spécifié"> Non spécifié
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Race du chien</label>
+                            <input class="form-control" type="text" placeholder="Race du chien" name="race">
+                            <label for="exampleFormControlInput1">Croisé</label>
+                            <input class="form-control" type="text" placeholder="Croisement" name="croisement">
+                        </div>
+                        <a href="profil.php">
+                        <input type="submit" id="insert" class="btn btn-success">
+                        </a>
+                    </form>
+                            <div class="modal-footer">
+                                <button  type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
