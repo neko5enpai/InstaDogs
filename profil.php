@@ -152,7 +152,7 @@ foreach($dogs as $dog){ ?>
                 <div class="modal-body">
                     <!-- Formulaire nouveau chien -->
                     <!-- <p>Some text in the modal.</p> -->
-                    <form class="registration" action="modif-dog.php" method="POST" enctype="multipart/form-data">
+                    <form class="registration" action="insert-dog.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Nom du chien</label>
                             <input id="exampleFormControlInput1" class="form-control" name="dogName" type="text"

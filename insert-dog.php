@@ -20,6 +20,6 @@ require ("profil.php");
     if(move_uploaded_file($_FILES["dogProfilePic"]["tmp_name"], $destinationFolder.$destinationName)){
         echo "<br/> fichier enregistré avec succes";
     }
-    $dogId=$app->modifDog($userId,$age,$dogName,$nickname,$gender,$breed,$crossed,$destinationName);
+    $dogId=$app->insertDog($userId,$age,$dogName,$nickname,$gender,$breed,$crossed,$destinationName);
 
 ?>
