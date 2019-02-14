@@ -1,6 +1,7 @@
 <?php 
+require ("php/connexion.php");
 session_start();
-require ("profil.php");
+$app=new Connexion();
 
     $userId=$_SESSION['id'];
     $age=$_POST["birthDate"];
@@ -21,5 +22,6 @@ require ("profil.php");
         echo "<br/> fichier enregistré avec succes";
     }
     $dogId=$app->insertDog($userId,$age,$dogName,$nickname,$gender,$breed,$crossed,$destinationName);
+    header("Location:profil.php");
 
 ?>

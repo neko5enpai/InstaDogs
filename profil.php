@@ -36,9 +36,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="login.php">Login</a>
-                </li>
+                <?php
+                if(isset($_SESSION['id'])){
+                    echo  '<li class="nav-item">
+                    <a class="nav-link" href="logout.php">Logout</a>
+                    </li>';
+                }
+                ?>
                 <li class="nav-item">
                     <a class="nav-link" href="inscription.php">Inscription</a>
                 </li>
@@ -82,7 +86,7 @@ foreach($dogs as $dog){ ?>
                     <div class="modal-body">
                         <!-- Formulaire nouveau chien -->
                         <!-- <p>Some text in the modal.</p> -->
-                        <form class="registration" action="modif-dog.php" method="POST" enctype="multipart/form-data">
+                        <form class="registration" action="modif-dog.php?id=<?php echo $dog->getDogId()?>" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="exampleFormControlInput<?php echo $dog->getDogId()?>">Nom du chien</label>
                                 <input id="exampleFormControlInput<?php echo $dog->getDogId()?>" class="form-control" name="dogName" type="text"
@@ -94,8 +98,8 @@ foreach($dogs as $dog){ ?>
                                     placeholder="Insérez le nom de votre chien" value="<?php echo $dog->getNickname()?>">
                             </div>
                             <div class="">
-                                <label class="" for="profilPicInput">Inserer photo de profile</label>
-                                <input id="profilPicInput" class="" name="dogProfilePic" type="file">
+                                <label class="" for="profilPicInputt<?php echo $dog->getDogId()?>">Inserer photo de profile</label>
+                                <input id="profilPicInputt<?php echo $dog->getDogId()?>" class="" name="dogProfilePic" type="file">
                             </div>
                             <div class="form-group">
                                 <label class="mt-2">Date de naissance</label>

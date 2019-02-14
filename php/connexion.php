@@ -90,8 +90,16 @@ class Connexion {
     }
 
     public function insertArticleByDogId($dogId) {
-        $rp=$this->connexion-prepare("INSERT INTO Article (dogId, articleDate, articleImage, articleText) VALUES (:dogId, :articleDate, :articleImage, :articleText)");
+        $rp=$this->connexion->prepare("INSERT INTO Article (dogId, articleDate, articleImage, articleText) VALUES (:dogId, :articleDate, :articleImage, :articleText)");
         $rp->execute(array("dogId"=>$dogId, "articleId"=>$articleId, "articleDate"=>$articleDate, "articleImage"=>$articleImage, "articleText"=>$articleText));
+    }
+
+    public function modifDog($dogId,$userId,$age,$dogName,$nickname,$gender,$breed,$crossed,$destinationName){
+        $rp=$this->connexion->prepare(
+            "UPDATE Dog 
+            SET age=:age, dogName=:dogName, nickname=:nickname,gender=:gender,breed=:breed,crossBreeding=:crossBreeding,photoURL=:photoURL
+            WHERE id=:dogId");
+        $rp->execute(array("dogId"=>$dogId, "age"=>$age,"dogName"=>$dogName,"nickname"=>$nickname, "gender"=>$gender,"breed"=>$breed,"crossBreeding"=>$crossed,"photoURL"=>$destinationName));
     }
 
 }

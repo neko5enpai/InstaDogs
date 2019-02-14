@@ -80,7 +80,6 @@
         <?php
         if(isset($_POST['userName'])){
             require ("php/connexion.php");
-            var_dump($_POST);
             $app = new Connexion();
             $user=$app->getUserByUserName($_POST['userName']);
             $hash=$user->getUserPassword();
