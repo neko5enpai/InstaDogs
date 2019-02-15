@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,18 +37,29 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+            <?php
+                if(isset($_SESSION['id'])){
+                    echo  '<li class="nav-item">
+                    <a class="nav-link" href="logout.php">Logout</a>
+                    </li>';   
+                }else{
+                    echo '<li class="nav-item">
                     <a class="nav-link" href="login.php">Login</a>
-                </li>
-                <li class="nav-item">
+                    </li>';
+                }
+                 if(!isset($_SESSION['id']))
+                    echo '<li class="nav-item">
                     <a class="nav-link" href="inscription.php">Inscription</a>
-                </li>
+                    </li>';
+                ?>
                 <li class="nav-item active">
                     <a class="nav-link" href="preview.php">Preview</a>
                 </li>
-                <li class="nav-item">
+                <?php if(isset($_SESSION['id'])){
+                    echo '<li class="nav-item">
                     <a class="nav-link" href="profil.php">Profil</a>
-                </li>
+                    </li>';
+                }?>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">

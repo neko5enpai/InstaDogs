@@ -43,14 +43,12 @@
         <li class="nav-item">
           <a class="nav-link" href="preview.php">Preview</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="profil.php">Profil</a>
-        </li>
+        <?php if(isset($_SESSION['id'])){
+                echo '<li class="nav-item">
+                    <a class="nav-link" href="profil.php">Profil</a>
+                    </li>';
+        }?>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-      </form>
     </div>
   </nav>
 
@@ -71,12 +69,6 @@
         <label for="inputConfirmPassword1">Confirmer le mot de passe</label>
         <input type="password" class="form-control" id="inputConfirmPassword1" name="confirmpassword"
           placeholder="Mot de passe">
-      </div>
-      <div class="form-group">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck">
-          <label class="form-check-label" for="gridCheck">Rester connecté</label>
-        </div>
       </div>
       <button type="submit" class="btn btn-primary">Créer compte</button>
     </form>

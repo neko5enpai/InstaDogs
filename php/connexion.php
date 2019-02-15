@@ -2,6 +2,7 @@
 
 require ('chien.php');
 require ('user.php');
+require('article.php');
 
 class Connexion {
     private $connexion;
@@ -89,9 +90,16 @@ class Connexion {
         return $comment;
     }
 
-    public function insertArticleByDogId($dogId) {
+    public function insertArticleByDogId($dogId,$articleId,$articleDate,$articleImage,$articleText) {
         $rp=$this->connexion->prepare("INSERT INTO Article (dogId, articleDate, articleImage, articleText) VALUES (:dogId, :articleDate, :articleImage, :articleText)");
         $rp->execute(array("dogId"=>$dogId, "articleId"=>$articleId, "articleDate"=>$articleDate, "articleImage"=>$articleImage, "articleText"=>$articleText));
+    }
+
+    public function selectArticlesByDogId($dogId){
+        $rp=$this->connexion->prepare("SELECT * FROM Article WHERE  dogId =:dogId");
+        $rp->execute(array("dogId"=>$dogId));
+        $articles=$rp->fetchAll(PDO::FETCH_CLASS,"Article");
+        return $articles;
     }
 
     public function modifDog($dogId,$userId,$age,$dogName,$nickname,$gender,$breed,$crossed,$destinationName){
@@ -100,6 +108,11 @@ class Connexion {
             SET age=:age, dogName=:dogName, nickname=:nickname,gender=:gender,breed=:breed,crossBreeding=:crossBreeding,photoURL=:photoURL
             WHERE id=:dogId");
         $rp->execute(array("dogId"=>$dogId, "age"=>$age,"dogName"=>$dogName,"nickname"=>$nickname, "gender"=>$gender,"breed"=>$breed,"crossBreeding"=>$crossed,"photoURL"=>$destinationName));
+    }
+
+    public function deleteDogById($dogId){
+        $rp=$this->connexion->prepare("DELETE FROM Dog WHERE id =:dogId");
+        $rp->execute(array("dogId"=>$dogId));
     }
 
 }

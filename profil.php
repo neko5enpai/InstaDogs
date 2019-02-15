@@ -42,10 +42,11 @@
                     <a class="nav-link" href="logout.php">Logout</a>
                     </li>';
                 }
-                ?>
-                <li class="nav-item">
+                if(!isset($_SESSION['id']))
+                    echo '<li class="nav-item">
                     <a class="nav-link" href="inscription.php">Inscription</a>
-                </li>
+                    </li>';
+                ?>
                 <li class="nav-item">
                     <a class="nav-link" href="preview.php">Preview</a>
                 </li>
@@ -53,10 +54,6 @@
                     <a class="nav-link" href="profil.php">Profil</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-            </form>
         </div>
     </nav>
 
@@ -74,7 +71,10 @@ foreach($dogs as $dog){ ?>
                 <img width="200px" height="200px" class="img-thumbnail" src="<?php echo $dog->getPhotoURL()?>" alt="...">
                 <h3><?php echo $dog->getDogName()?></h3>
             </a>
-            <button type="button" class="btn btn-light delete_dog"><i class="fas fa-trash-alt"></i></button>
+            <form style="float:left;" action="dog-delete.php" method="POST">
+                <input type="hidden" name="dog-delete" value="<?php echo $dog->getDogId()?>">
+                <button type="submit" class="btn btn-light delete_dog"><i class="fas fa-trash-alt"></i></button>
+            </form>
             <button type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal<?php echo $dog->getDogId()?>"><i
                     class="fas fa-edit"></i></button>
             </div>  

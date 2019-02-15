@@ -47,14 +47,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="preview.php">Preview</a>
                 </li>
-                <li class="nav-item">
+                <?php if(isset($_SESSION['id'])){
+                echo '<li class="nav-item">
                     <a class="nav-link" href="profil.php">Profil</a>
-                </li>
+                    </li>';
+                }?>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-            </form>
         </div>
 
     </nav>
@@ -71,19 +69,20 @@
                 <label for="exampleInputPassword1">Mot de passe</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Mot de passe">
             </div>
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Rester connecté</label>
-            </div>
             <button type="submit" class="btn btn-primary">Connexion</button>
         </form>
+
         <?php
         if(isset($_POST['userName'])){
             require ("php/connexion.php");
             $app = new Connexion();
             $user=$app->getUserByUserName($_POST['userName']);
-            $hash=$user->getUserPassword();
-            $userId=$user->getId();
+            if(!empty($user)){
+                $hash=$user->getUserPassword();
+                $userId=$user->getId();
+            }else{
+                header("location:login.php");
+            }
             if(password_verify($_POST['password'],$hash)){
                 session_start();
                 $_SESSION['id'] = $userId; 

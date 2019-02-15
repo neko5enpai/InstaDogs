@@ -51,23 +51,31 @@ $dog=$app->getDogById($_GET['id']);
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+                <?php
+                if(isset($_SESSION['id'])){
+                    echo  '<li class="nav-item">
+                    <a class="nav-link" href="logout.php">Logout</a>
+                    </li>';   
+                }else{
+                    echo '<li class="nav-item">
                     <a class="nav-link" href="login.php">Login</a>
-                </li>
-                <li class="nav-item">
+                    </li>';
+                }
+                
+               if(!isset($_SESSION['id']))
+                    echo '<li class="nav-item">
                     <a class="nav-link" href="inscription.php">Inscription</a>
-                </li>
+                    </li>';
+                ?>
                 <li class="nav-item">
                     <a class="nav-link" href="preview.php">Preview</a>
                 </li>
-                <li class="nav-item">
+                <?php if(isset($_SESSION['id'])){
+                echo '<li class="nav-item">
                     <a class="nav-link" href="profil.php">Profil</a>
-                </li>
+                    </li>';
+                }?>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-            </form>
         </div>
     </nav>
 
@@ -86,84 +94,24 @@ $dog=$app->getDogById($_GET['id']);
             ligula. Nunc accumsan arcu turpis, ac faucibus odio hendrerit eu. In ornare justo lectus, semper vulputate
             risus mollis vitae. Aenean in pellentesque mi. Curabitur vestibulum feugiat ligula, eu lacinia purus tempus
             in. Cras bibendum a mauris id pretium.</p>
-
-        <!-- Trigger the modal with a button -->
-        <div class="mt-3">
-            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
-
-            <!-- Modal -->
-            <div id="myModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <!-- <h4 class="modal-title">Nouveau chien</h4> -->
-                        </div>
-                        <div class="modal-body">
-                            <!-- Formulaire nouveau chien -->
-                            <!-- <p>Some text in the modal.</p> -->
-                            <form>
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Nom du chien</label>
-                                    <input id="exampleFormControlInput1" class="form-control" type="text" placeholder="Insérez le nom de votre chien">
-                                </div>
-                                <div class="form-group">
-                                    <label>Date de naissance</label>
-                                    <input type="date" class="form-control" id="exampleInputDOB1">
-                                </div>
-                                <div class="form-group">
-                                    <label class="radio-inline mr-2">
-                                        <input type="radio" name="optradio" checked> Mâle
-                                    </label>
-                                    <label class="radio-inline mr-2">
-                                        <input type="radio" name="optradio"> Femelle
-                                    </label>
-                                    <label class="radio-inline mr-2">
-                                        <input type="radio" name="optradio"> Non spécifié
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Race du chien</label>
-                                    <input class="form-control" type="text" placeholder="Race du chien">
-                                    <label for="exampleFormControlInput1">Croisement</label>
-                                    <input class="form-control" type="text" placeholder="Croisement">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Description</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                </div>
-                            </form>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-success" data-dismiss="modal">Ajouter</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
+        
         <div class="arrow-down">
             <a href="#dog-article">
                 <img src="img/thin-arrowheads-pointing-down.png" alt="down arrow" />
             </a>
         </div>
 
+        <h2>Articles sur mon toutou</h2>
+        <?php if(isset($_SESSION['id'])){
+                echo '<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal1">Ajouter
+                    un article</button>';
+                }
+        ?>
         <div id="dog-article">
-            <h2>Articles sur mon toutou</h2>
-
             <div class="new-dog-article">
-                <!-- Trigger the modal with a button -->
-                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal1">Ajouter
-                    un article</button>
-
-                <!-- Modal -->
+               <!-- Modal -->
                 <div id="myModal1" class="modal fade" role="dialog">
                     <div class="modal-dialog">
-
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
@@ -172,27 +120,25 @@ $dog=$app->getDogById($_GET['id']);
                             </div>
                             <div class="modal-body">
                                 <!-- <p>Some text in the modal.</p> -->
-
                                 <!-- Formulaire nouvel article -->
-                                <form>
+                                <form action="insert-article.php" method="POST" enctype="multipart/form-data">
+                                    </div><div class="form-group">
+                                        <label for="title">Titre de l'article</label>
+                                        <input class="form-control" id="title" name="title">
+                                    </div>
                                     <div class="form-group">
                                         <label for="exampleFormControlFile1">Insérer une image</label>
-                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                    </div>
-
-
-
+                                        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
                                     <div class="form-group">
                                         <label for="exampleFormControlTextarea2">Contenu de l'article</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
+                                        <textarea class="form-control" name="article" id="exampleFormControlTextarea2" rows="3"></textarea>
                                     </div>
-
+                                    <div class="modal-footer">
+                                        <input type="submit" class="btn btn-success">
+                                    </div>
                                 </form>
-
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-success" data-dismiss="modal">Envoyer</button>
-                            </div>
+                           
                         </div>
 
                     </div>
@@ -228,8 +174,6 @@ $dog=$app->getDogById($_GET['id']);
                </div>
             <?php } ?>
 
-         
-            
             <div><img class="comment-img mr-2" src="img/8.jpg" alt=""><span class="comment-autor mr-3">Fluffy</span><span
                     class="comment-date">18.06.2019</span></div>
             <p>
@@ -239,26 +183,6 @@ $dog=$app->getDogById($_GET['id']);
                 vulputate risus mollis vitae. Aenean in pellentesque mi. Curabitur vestibulum feugiat ligula, eu
                 lacinia purus tempus in. Cras bibendum a mauris id pretium.
             </p>
-            <div><img class="comment-img mr-2" src="img/8.jpg" alt=""><span class="comment-autor mr-3">Fluffy</span><span
-                    class="comment-date">18.06.2019</span></div>
-            <p>
-                AAA Donec id felis at justo accumsan mollis. Ut mattis nisl felis, ut iaculis augue dictum a. Maecenas
-                quis
-                luctus ligula. Nunc accumsan arcu turpis, ac faucibus odio hendrerit eu. In ornare justo lectus, semper
-                vulputate risus mollis vitae. Aenean in pellentesque mi. Curabitur vestibulum feugiat ligula, eu
-                lacinia purus tempus in. Cras bibendum a mauris id pretium.
-            </p>
-
-            <div><img class="comment-img mr-2" src="img/8.jpg" alt=""><span class="comment-autor mr-3">Fluffy</span><span
-                    class="comment-date">18.06.2019</span></div>
-            <p>
-                AAA Donec id felis at justo accumsan mollis. Ut mattis nisl felis, ut iaculis augue dictum a. Maecenas
-                quis
-                luctus ligula. Nunc accumsan arcu turpis, ac faucibus odio hendrerit eu. In ornare justo lectus, semper
-                vulputate risus mollis vitae. Aenean in pellentesque mi. Curabitur vestibulum feugiat ligula, eu
-                lacinia purus tempus in. Cras bibendum a mauris id pretium.
-            </p>
-
         </div>
     </div>
 
